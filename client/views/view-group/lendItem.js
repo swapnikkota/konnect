@@ -18,7 +18,7 @@ var saveImage = function(error, data){
 	Session.set("photo", data);
 	var item = {pic : data, itemDesc : "testImage"};
 	Meteor.call('addItem', item, function(error) {
-      console.log(error);
+    
     });
 }
 
