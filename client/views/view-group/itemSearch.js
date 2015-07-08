@@ -1,5 +1,5 @@
 Template.itemSearch.onCreated(function() {
-  Session.set('itemSubmitErrors', {});
+  Session.set('itemSubmitErrors', {}); 
 });
 
 Template.itemSearch.helpers({
@@ -27,6 +27,7 @@ var searchItem = function(event,template){
       if (error)
         return throwError(error.reason);      
       console.log(result);
+	  Session.set('itemSearched', itemToFind);
       Router.go('borrow', result);  
     });
   }
@@ -37,9 +38,6 @@ Template.itemSearch.events({
   },
   "submit": function (event, template) {
 	searchItem(event, template);
-  },
-  "click .input-group-addon" : function(event, template){
-	  searchItem(event, template);
   }
   
 });

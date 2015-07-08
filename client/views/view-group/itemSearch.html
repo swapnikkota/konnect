@@ -7,13 +7,10 @@
 			<p>Enter the item you want to borrow or lend </p>
 			<div class="row">					
 				<div class="col-sm-4 col-xs-8 col-sm-offset-4 col-xs-offset-2 ">
-					<form>
-						<div class="input-group input-group-lg {{errorClass 'itemDesc'}}">
-							<input type="text" id="itemDesc" name="itemDesc" class="form-control input-lg" />
-							<span class="input-group-addon">
-								<i class="fa fa-search"></i>
-							</span>
-							<span class="help-block">{{errorMessage 'itemDesc'}}</span>
+					<form role="form">
+						<div class="input-group-lg {{errorClass 'itemDesc'}}">
+							<input type="text" id="itemDesc" name="itemDesc" class="form-control input-lg" required />							 
+							<p><span class="help-block">{{errorMessage 'itemDesc'}}</span></p>
 						</div>
 					</form>				
 				</div>					
