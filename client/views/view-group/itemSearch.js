@@ -28,8 +28,8 @@ var searchItem = function(event,template){
         return throwError(error.reason);      
       console.log(result);
 	  Session.set('itemSearched', itemToFind);
-	   Session.set('searchResults', result.itemsForBorrow[0]);
-      Router.go('borrow', result.itemsForBorrow[0]);  
+	   Session.set('searchResults', result.itemsForBorrow);
+      Router.go('borrow', result.itemsForBorrow);  
     });
   }
   
