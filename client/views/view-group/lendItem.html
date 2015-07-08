@@ -1,17 +1,24 @@
 	
 <template name="lendItem">
 <!-- ==== HEADERWRAP ==== -->
-	
-		
+	<div class="container">
 		<header class="clearfix">
 			<p>Please upload your picture </p>			
 			<div class="row">					
-				<div class="col-sm-6 col-xs-10 col-sm-offset-3 col-xs-offset-1">
-					<a href="#"  id="lend" class="btn btn-lg btn-success">Upload</a>
+				<div class="col-sm-3 col-xs-10 col-xs-offset-1">					
 					<img src={{photo}} />
-				</div>					
+					<a href="#"  id="lend" class="btn btn-lg btn-success">Upload</a>
+				</div>	
+				<div class="col-sm-3 col-xs-10  col-xs-offset-1">
+					<h1>Where am I?</h1>
+					<img src="http://maps.googleapis.com/maps/api/staticmap?center={{loc.lat}},{{loc.lng}}&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7C{{loc.lat}},{{loc.lng}}" />
+ 				  {{#if error}}
+						<p>Error: {{error.message}}</p>
+					  {{/if}}	
+				</div>				
 			</div>					
 		</header>	    
+	</div>
 	
 	
 </template>

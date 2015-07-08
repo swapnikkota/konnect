@@ -254,13 +254,8 @@ a:after {
 
 #headerwrap p {
 	color:#ffffff;
-	font-size: 25px;
-	font-weight: 400;
+	font-size: 25px;	
 	text-align: center;
-	//line-height: 40px;
-	letter-spacing: 2px;
-	//margin-left: 15px;
-	text-shadow: 1px 1px 1px #000;
 }
 
 #greywrap {
@@ -313,6 +308,9 @@ a:after {
 			margin-top: 0px;
 			padding-top:20%;
 		}
+		#headerwrap p {
+			font-size : 20px;
+		}
     }
 
     /* Extra Small Devices, Phones */ 
@@ -328,6 +326,9 @@ a:after {
 			padding-top:28%;
 			background-position-x : 15%;
 			background-position-y : -2%;
+		}
+		#headerwrap p {
+			font-size : 20px;
 		}
     }
 
