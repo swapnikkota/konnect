@@ -306,7 +306,7 @@ a:after {
 		}
 		#headerwrap {
 			margin-top: 0px;
-			padding-top:20%;
+			padding-top:15%;
 		}
 		#headerwrap p {
 			font-size : 20px;
@@ -317,7 +317,7 @@ a:after {
     @media only screen and (max-width : 480px) {
 		#headerwrap {
 			margin-top: 0px;
-			padding-top:20%;
+			padding-top:15%;
 		}
 		#postalSearch{			
 			padding-top:35%;
