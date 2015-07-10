@@ -296,51 +296,6 @@ a:after {
 	padding-bottom : 42%;
 }
 
- @media only screen and (max-width : 320px) {
-        #postalSearch{			
-			padding-top:35%;
-		}
-		#register{
-			padding-top:28%;
-			background-position-x : 15%;
-			background-position-y : -2%;
-		}
-		#headerwrap {
-			margin-top: 0px;
-			padding-top:15%;
-		}
-		#headerwrap p {
-			font-size : 20px;
-		}
-		.item-form{
-			margin-top : 20%;
-		}
-    }
-
-    /* Extra Small Devices, Phones */ 
-    @media only screen and (max-width : 480px) {
-		#headerwrap {
-			margin-top: 0px;
-			padding-top:15%;
-		}
-		#postalSearch{			
-			padding-top:35%;
-		}
-		#register{
-			padding-top:28%;
-			background-position-x : 15%;
-			background-position-y : -2%;
-		}
-		#headerwrap p {
-			font-size : 20px;
-		}
-		.item-form{
-			margin-top : 20%;
-		}
-    }
-
-
-
 .camera-popup {
     width: 99% !important;
     left: inherit !important;
@@ -367,11 +322,6 @@ a:after {
 margin-top : 6%;
 min-height : 79.5%;
 }
-
-
-  #actions {
-      margin: 2em 0;
-    }
 
 
     /* Mimic table appearance */
@@ -424,3 +374,55 @@ min-height : 79.5%;
 	min-height : 91.5%;
 	padding-top:3.5%;
 	}
+	
+	legend {
+		padding: 5px;
+		color: #FFFFFF;
+		background-color: #eb5c32;
+	}
+	
+ @media only screen and (max-width : 320px) {
+        #postalSearch{			
+			padding-top:35%;
+		}
+		#register{
+			padding-top:28%;
+			background-position-x : 15%;
+			background-position-y : -2%;
+		}
+		#headerwrap {
+			margin-top: 0px;
+			padding-top:15%;
+		}
+		#headerwrap p {
+			font-size : 20px;
+		}
+		.item-form{
+			margin-top : 13%;
+		}
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+		#headerwrap {
+			margin-top: 0px;
+			padding-top:15%;
+		}
+		#postalSearch{			
+			padding-top:35%;
+		}
+		#register{
+			padding-top:28%;
+			background-position-x : 15%;
+			background-position-y : -2%;
+		}
+		#headerwrap p {
+			font-size : 20px;
+		}
+		.item-form{
+			margin-top : 13%;
+		}
+    }
+
+
+
