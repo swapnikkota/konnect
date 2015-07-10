@@ -1,5 +1,5 @@
 Template.itemslist.onCreated(function() {
-	if(!Session.get('itemSearched')){
+	/*if(!Session.get('itemSearched')){
 			 var itemToFind = {
 			  itemDesc : "test"
 			};
@@ -16,17 +16,20 @@ Template.itemslist.onCreated(function() {
 				 Session.set('photo',  result.itemsForBorrow[item].pic)
 		  }
 		 
-		});
+		});*/
   
+});
+
+Meteor.subscribe("items");
+
+
+Meteor.subscribe("ItemImages");
+Template.itemslist.helpers({
+  images: function () {
+    return ItemImages.find(); // Where Images is an FS.Collection instance
+  }
 });
 
 
 
-
-Template.itemslist.helpers({
-    photo: function () {
-		return Session.get('photo');
-      
-    }
-  });
   

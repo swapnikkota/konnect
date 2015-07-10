@@ -13,3 +13,7 @@ service-configuration
 iron:router
 mdg:camera
 mdg:geolocation
+yogiben:autoform-map
+dbarrett:dropzonejs
+cfs:standard-packages
+cfs:gridfs
