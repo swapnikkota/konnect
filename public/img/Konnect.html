@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://localhost:3000/borrow -->
+<html class=" js no-touch cssanimations csstransitions"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="./Konnect_files/07d5a2fc7072b3a39e2dd71f4c7d53568ffc22db.css">
+
+
+<script type="text/javascript">__meteor_runtime_config__ = JSON.parse(decodeURIComponent("%7B%22meteorRelease%22%3A%22METEOR%401.1.0.2%22%2C%22ROOT_URL%22%3A%22http%3A%2F%2Flocalhost%3A3000%2F%22%2C%22ROOT_URL_PATH_PREFIX%22%3A%22%22%2C%22appId%22%3A%221grnjk61oi0vrjpi36oi%22%2C%22autoupdateVersion%22%3A%2253c79425e55ca5339b1e2cc2fc4545eba2143cf5%22%2C%22autoupdateVersionRefreshable%22%3A%225656067a6f78e1a3c9fab5021ac544ee7b006f41%22%2C%22autoupdateVersionCordova%22%3A%2254472148ca6ce6e552dd85eb06da35bf116e3bd8%22%7D"));</script>
+
+  <script type="text/javascript" src="./Konnect_files/underscore.js"></script>
+  <script type="text/javascript" src="./Konnect_files/meteor.js"></script>
+  <script type="text/javascript" src="./Konnect_files/json.js"></script>
+  <script type="text/javascript" src="./Konnect_files/base64.js"></script>
+  <script type="text/javascript" src="./Konnect_files/ejson.js"></script>
+  <script type="text/javascript" src="./Konnect_files/logging.js"></script>
+  <script type="text/javascript" src="./Konnect_files/reload.js"></script>
+  <script type="text/javascript" src="./Konnect_files/tracker.js"></script>
+  <script type="text/javascript" src="./Konnect_files/random.js"></script>
+  <script type="text/javascript" src="./Konnect_files/retry.js"></script>
+  <script type="text/javascript" src="./Konnect_files/check.js"></script>
+  <script type="text/javascript" src="./Konnect_files/id-map.js"></script>
+  <script type="text/javascript" src="./Konnect_files/ordered-dict.js"></script>
+  <script type="text/javascript" src="./Konnect_files/geojson-utils.js"></script>
+  <script type="text/javascript" src="./Konnect_files/minimongo.js"></script>
+  <script type="text/javascript" src="./Konnect_files/ddp.js"></script>
+  <script type="text/javascript" src="./Konnect_files/mongo.js"></script>
+  <script type="text/javascript" src="./Konnect_files/autoupdate.js"></script>
+  <script type="text/javascript" src="./Konnect_files/meteor-platform.js"></script>
+  <script type="text/javascript" src="./Konnect_files/npm-bcrypt.js"></script>
+  <script type="text/javascript" src="./Konnect_files/localstorage.js"></script>
+  <script type="text/javascript" src="./Konnect_files/callback-hook.js"></script>
+  <script type="text/javascript" src="./Konnect_files/jquery.js"></script>
+  <script type="text/javascript" src="./Konnect_files/deps.js"></script>
+  <script type="text/javascript" src="./Konnect_files/htmljs.js"></script>
+  <script type="text/javascript" src="./Konnect_files/observe-sequence.js"></script>
+  <script type="text/javascript" src="./Konnect_files/reactive-var.js"></script>
+  <script type="text/javascript" src="./Konnect_files/blaze.js"></script>
+  <script type="text/javascript" src="./Konnect_files/accounts-base.js"></script>
+  <script type="text/javascript" src="./Konnect_files/sha.js"></script>
+  <script type="text/javascript" src="./Konnect_files/srp.js"></script>
+  <script type="text/javascript" src="./Konnect_files/accounts-password.js"></script>
+  <script type="text/javascript" src="./Konnect_files/url.js"></script>
+  <script type="text/javascript" src="./Konnect_files/oauth.js"></script>
+  <script type="text/javascript" src="./Konnect_files/accounts-oauth.js"></script>
+  <script type="text/javascript" src="./Konnect_files/service-configuration.js"></script>
+  <script type="text/javascript" src="./Konnect_files/oauth2.js"></script>
+  <script type="text/javascript" src="./Konnect_files/templating.js"></script>
+  <script type="text/javascript" src="./Konnect_files/facebook.js"></script>
+  <script type="text/javascript" src="./Konnect_files/accounts-facebook.js"></script>
+  <script type="text/javascript" src="./Konnect_files/twbs_bootstrap.js"></script>
+  <script type="text/javascript" src="./Konnect_files/reactive-dict.js"></script>
+  <script type="text/javascript" src="./Konnect_files/session.js"></script>
+  <script type="text/javascript" src="./Konnect_files/spacebars.js"></script>
+  <script type="text/javascript" src="./Konnect_files/stylus.js"></script>
+  <script type="text/javascript" src="./Konnect_files/ui.js"></script>
+  <script type="text/javascript" src="./Konnect_files/anti_i18n.js"></script>
+  <script type="text/javascript" src="./Konnect_files/ian_accounts-ui-bootstrap-3.js"></script>
+  <script type="text/javascript" src="./Konnect_files/iron_core.js"></script>
+  <script type="text/javascript" src="./Konnect_files/iron_dynamic-template.js"></script>
+  <script type="text/javascript" src="./Konnect_files/iron_layout.js"></script>
+  <script type="text/javascript" src="./Konnect_files/iron_url.js"></script>
+  <script type="text/javascript" src="./Konnect_files/iron_middleware-stack.js"></script>
+  <script type="text/javascript" src="./Konnect_files/iron_location.js"></script>
+  <script type="text/javascript" src="./Konnect_files/iron_controller.js"></script>
+  <script type="text/javascript" src="./Konnect_files/iron_router.js"></script>
+  <script type="text/javascript" src="./Konnect_files/less.js"></script>
+  <script type="text/javascript" src="./Konnect_files/mdg_camera.js"></script>
+  <script type="text/javascript" src="./Konnect_files/mdg_geolocation.js"></script>
+  <script type="text/javascript" src="./Konnect_files/coffeescript.js"></script>
+  <script type="text/javascript" src="./Konnect_files/aldeed_simple-schema.js"></script>
+  <script type="text/javascript" src="./Konnect_files/livedata.js"></script>
+  <script type="text/javascript" src="./Konnect_files/momentjs_moment.js"></script>
+  <script type="text/javascript" src="./Konnect_files/aldeed_autoform.js"></script>
+  <script type="text/javascript" src="./Konnect_files/yogiben_autoform-map.js"></script>
+  <script type="text/javascript" src="./Konnect_files/dbarrett_dropzonejs.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_standard-packages.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_base-package.js"></script>
+  <script type="text/javascript" src="./Konnect_files/mongo-livedata.js"></script>
+  <script type="text/javascript" src="./Konnect_files/raix_eventemitter.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_storage-adapter.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_gridfs.js"></script>
+  <script type="text/javascript" src="./Konnect_files/webapp.js"></script>
+  <script type="text/javascript" src="./Konnect_files/launch-screen.js"></script>
+  <script type="text/javascript" src="./Konnect_files/dburles_google-maps.js"></script>
+  <script type="text/javascript" src="./Konnect_files/http.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_data-man.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_file.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_tempstore.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_http-methods.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_http-publish.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_access-point.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_reactive-property.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_reactive-list.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_power-queue.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_upload-http.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_collection.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_collection-filters.js"></script>
+  <script type="text/javascript" src="./Konnect_files/cfs_worker.js"></script>
+  <script type="text/javascript" src="./Konnect_files/global-imports.js"></script>
+  <script type="text/javascript" src="./Konnect_files/template.footerwrap.js"></script>
+  <script type="text/javascript" src="./Konnect_files/template.greywrap.js"></script>
+  <script type="text/javascript" src="./Konnect_files/template.header.js"></script>
+  <script type="text/javascript" src="./Konnect_files/template.home.js"></script>
+  <script type="text/javascript" src="./Konnect_files/template.itemSearch.js"></script>
+  <script type="text/javascript" src="./Konnect_files/template.itemslist.js"></script>
+  <script type="text/javascript" src="./Konnect_files/template.lendItem.js"></script>
+  <script type="text/javascript" src="./Konnect_files/template.postalsearch.js"></script>
+  <script type="text/javascript" src="./Konnect_files/template.register.js"></script>
+  <script type="text/javascript" src="./Konnect_files/items.js"></script>
+  <script type="text/javascript" src="./Konnect_files/router.js"></script>
+  <script type="text/javascript" src="./Konnect_files/itemSearch.js"></script>
+  <script type="text/javascript" src="./Konnect_files/itemlist.js"></script>
+  <script type="text/javascript" src="./Konnect_files/lendItem.js"></script>
+  <script type="text/javascript" src="./Konnect_files/postalsearch.js"></script>
+  <script type="text/javascript" src="./Konnect_files/jquery.min.js"></script>
+  <script type="text/javascript" src="./Konnect_files/konnect.js"></script>
+  <script type="text/javascript" src="./Konnect_files/modernizr.custom.js"></script>
+
+
+
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="konnect">
+    <meta name="author" content="konnect">
+    <title> Konnect</title>	        
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+
+
+	
+	
+	
+
+	
+	<div class="container-fluid">
+</div><div id="navbar-main">
+
+      <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+       <div class="navbar-header">
+        <a class="navbar-brand" href="http://localhost:3000/">Konnect</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav"></ul>
+		        <ul class="nav navbar-nav navbar-right">
+            
+		 
+		
+			 
+				<li id="login-dropdown-list" class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown">Sign in / Join <b class="caret"></b></a>
+		<div class="dropdown-menu">
+			
+	
+		
+			
+		<button class="login-button btn btn-block btn-Facebook">Sign in with Facebook</button>
+	
+		
+	
+	
+		
+			 
+				<div class="or">
+		<span class="hline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<span class="or-text">or</span>
+		<span class="hline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	</div>
+			
+			
+		
+	
+		
+			
+		
+			
+		
+			
+		<!-- TODO: Implement more input types -->
+		
+
+		
+
+		
+
+		
+			<input id="login-email" type="email" placeholder="Email" class="form-control">
+		
+	
+		
+			
+		<!-- TODO: Implement more input types -->
+		
+
+		
+
+		
+
+		
+			<input id="login-password" type="password" placeholder="Password" class="form-control">
+		
+	
+		
+		<button class="btn btn-primary col-xs-12 col-sm-12" id="login-buttons-password" type="button">
+			
+				Sign in
+			
+		</button>
+		
+			<div id="login-other-options">
+			
+				<a id="forgot-password-link" class="pull-left">Forgot password?</a>
+			
+			
+				<a id="signup-link" class="pull-right">Create account</a>
+			
+			</div>
+		
+		
+	
+		
+	
+		</div>
+	</li>
+			
+		
+	
+	 <!-- here -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    </div>
+<div id="postalSearch" class="container-fluid">
+        <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h3 class="panel-title">Pick your neighbourhood<small></small></h3>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form action="http://localhost:3000/borrow#" role="form">
+			    			<div class="form-group">
+									<input type="text" id="postalCode" name="postalCode" class="form-control input-lg" placeholder="Enter your postal code" required="">
+			    			</div>
+								<input type="submit" value="Continue" class="btn btn-success btn-block">
+  						</form>
+			    	</div>
+	    		</div>
+    		</div>
+    	</div>
+    </div>
+<div id="footerwrap">
+			<div class="container">
+				<h4>Copyright 2015</h4>
+			</div>
+		</div></body></html>
