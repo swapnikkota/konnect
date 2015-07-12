@@ -1,110 +1,113 @@
-
+	
 <template name="lendItem">
 
 
-<div class="container item-form well">
-	<form class="form-horizontal">
-		<fieldset>
+	<div class="container item-form well">
+		<form class="form-horizontal">
+			<fieldset>
 
-		<legend>Item Details</legend>
+			<!-- Form Name -->
+			<legend>Item Details</legend>
 
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="itemName">Item Name</label>
-			<div class="col-md-4">
-			<input id="itemName" name="itemName" type="text" placeholder="Item Name" class="form-control input-md" required="Please enter item name">
-
+			<!-- Text input-->
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="itemName">Item Name</label>  
+			  <div class="col-md-4">
+			  <input id="itemName" name="itemName" type="text" placeholder="Item Name" class="form-control input-md" required="Please enter item name">
+				
+			  </div>
 			</div>
-		</div>
 
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="itemDesc">Item Descirption</label>
-			<div class="col-md-4">
-			<textarea class="form-control" id="itemDesc" name="itemDesc" placeholder="Please enter description"></textarea>
+			<!-- Textarea -->
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="itemDesc">Item Descirption</label>
+			  <div class="col-md-4">                     
+				<textarea class="form-control" id="itemDesc" name="itemDesc" placeholder="Please enter description"></textarea>
+			  </div>
 			</div>
-		</div>
-
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="itemDesc">Postal Code</label>
-			<div class="col-md-4">
-			<input type="text" class="form-control" id="postalCode" name="postalCode" placeholder="Please enter postal code"/>
+			
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="itemDesc"></label>
+			  <div class="col-md-4">                     
+				{{> uploadActions}}
+			  </div>
 			</div>
-		</div>
 
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="itemDesc"></label>
-			<div class="col-md-4">
-			{{> uploadActions}}
+			
+		   {{>uploadPreview}}
+
+			<!-- Button -->
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="singlebutton"></label>
+			  <div class="col-md-4">
+				<button id="singlebutton" name="singlebutton" class="btn btn-success btn-lg">Lend</button>
+			  </div>
 			</div>
-		</div>
 
+			</fieldset>
+		</form> 
+	   
+		 
+		
+		 
 
-
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="singlebutton"></label>
-			<div class="col-md-4">
-			<button id="singlebutton" name="singlebutton" class="btn btn-success">Lend</button>
-			</div>
-		</div>
-
-		</fieldset>
-	</form>
-
-	 {{>uploadPreview}}
-
-
-
-
-</div>
-
-
+	</div>
+	
+	
 </template>
 
 <template name="uploadActions">
- <div id="actions" class="row">
+	 <div id="actions" class="row">
 
-		<div class="col-lg-7">
-			<span class="btn btn-success fileinput-button dz-clickable">
-					<i class="glyphicon glyphicon-plus"></i>
-					<span>Add files...</span>
-			</span>
+      <div class="col-lg-7">
+        <!-- The fileinput-button span is used to style the file input field as button -->
+        <span class="btn btn-success fileinput-button dz-clickable">
+            <i class="glyphicon glyphicon-plus"></i>
+            <span>Add files...</span>
+        </span>
+       
+      </div>
 
-		</div>
+      <div class="col-lg-5">
+        <!-- The global file processing state -->
+        <span class="fileupload-process">
+          <div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="opacity: 0;">
+            <div class="progress-bar progress-bar-success" style="width: 100%;" data-dz-uploadprogress=""></div>
+          </div>
+        </span>
+      </div>
 
-		<div class="col-lg-5">
-			<span class="fileupload-process">
-				<div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="opacity: 0;">
-					<div class="progress-bar progress-bar-success" style="width: 100%;" data-dz-uploadprogress=""></div>
-				</div>
-			</span>
-		</div>
-
-	</div>
+    </div>
 </template>
 <template name ="uploadPreview">
 <div class="table table-striped files" id="previews">
-
-<div id="template" class="file-row">
-	<div>
-			<span class="preview"><img data-dz-thumbnail /></span>
-	</div>
-	<div>
-			<p class="name" data-dz-name></p>
-			<strong class="error text-danger" data-dz-errormessage></strong>
-	</div>
-	<div>
-			<p class="size" data-dz-size></p>
-	</div>
-	<div>
-	 <button data-dz-remove class="btn btn-warning cancel">
-				<i class="glyphicon glyphicon-ban-circle"></i>
-				<span>Cancel</span>
-		</button>
-		<button data-dz-remove class="btn btn-danger delete">
-			<i class="glyphicon glyphicon-trash"></i>
-			<span>Delete</span>
-		</button>
-	</div>
-</div>
-
+ 
+  <div id="template" class="file-row">
+    <!-- This is used as the file preview template -->
+    <div>
+        <span class="preview"><img data-dz-thumbnail /></span>
+    </div>
+    <div>
+        <p class="name" data-dz-name></p>
+        <strong class="error text-danger" data-dz-errormessage></strong>
+    </div>
+    <div>
+        <p class="size" data-dz-size></p>        
+    </div>
+    <div>
+     <button data-dz-remove class="btn btn-danger cancel">
+          <i class="glyphicon glyphicon-trash"></i>
+          <span>Delete</span>
+      </button>
+      <button data-dz-remove class="btn btn-danger delete">
+        <i class="glyphicon glyphicon-trash"></i>
+        <span>Delete</span>
+      </button>
+    </div>
+  </div>
+ 
 </div>
 </template>
+
+
+
