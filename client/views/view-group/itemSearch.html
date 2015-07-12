@@ -1,32 +1,31 @@
-	
 <template name="itemSearch">
-<!-- ==== HEADERWRAP ==== -->
 	<div id="headerwrap" class="container">
-		<br><br>
 		<header class="clearfix">
-			<p>Enter the item you want to borrow or lend </p>
-			<div class="row">					
-				<div class="col-sm-4 col-xs-8 col-sm-offset-4 col-xs-offset-2 ">
-					<form role="form">
-						<div class="input-group-lg {{errorClass 'itemDesc'}}">
-							<input type="text" id="itemDesc" name="itemDesc" class="form-control input-lg" required />							 
-							<p><span class="help-block">{{errorMessage 'itemDesc'}}</span></p>
-						</div>
-					</form>				
-				</div>					
-			</div>
-			
-			<div class="row">					
-				<div class="col-sm-6 col-xs-10 col-sm-offset-3 col-xs-offset-1">
-					<a href="{{pathFor 'lend'}}"  id="lend" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-circle-arrow-right"></span> Lend</a>
-					<a href="{{pathFor 'borrow'}}" id="borrow" class="btn btn-lg btn-success"> Borrow <span class="glyphicon glyphicon-circle-arrow-left"></span></a>
-				</div>					
-			</div>					
-		</header>	    
-	</div><!-- /headerwrap -->
+			<div  class="container-fluid">
+		        <div class="row centered-form">
+							<p class="p_text_shadow"><strong>Share items with your neighbours</strong></p>
+	        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+		        	<div class="panel panel-default">
+		        		<div class="panel-heading">
+					    		<h3 class="panel-title">Enter an item you wish to borrow.<small></small></h3>
+					 			</div>
+					 			<div class="panel-body">
+					    		<form ole="form">
+					    			<div class="form-group">
+											<input type="text" id="itemDesc" name="itemDesc" class="form-control input-lg" placeholder="e.g. Toolbox" required />
+											<p><span class="help-block">{{errorMessage 'itemDesc'}}</span></p>
+										</div>
+										<a href="{{pathFor 'borrow'}}" id="borrow" class="btn btn-lg btn-success custom-btn-size"> Borrow <span class="glyphicon glyphicon-circle-arrow-left"></span></a>
+					    		</form>
+									<div class="row">
+										<label class="">Have things to Lend?</label><a href="{{pathFor 'lend'}}"   id="lend"><span class="text-info"><strong> <u>Start Here</u></strong></span></a>
+									</div>
+					    	</div>
+			    		</div>
+		    		</div>
+		    	</div>
+		    </div>
+	</header>
+	</div>
 	{{> greywrap}}
-	
-	
 </template>
-
-

@@ -16,6 +16,19 @@
 }
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
+.navbar-inverse
+.navbar-brand {
+  color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
 
 .nav-justified {
   background-color: #eee;
