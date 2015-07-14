@@ -3,7 +3,21 @@ Template.postalsearch.helpers({
 
 });
 
+
+
+
+
+Template.postalsearch.onRendered(function() {
+  	this.autorun(function () {
+    if (GoogleMaps.loaded()) {		     		 
+		$("#postalCode").geocomplete({ details: "form" });
+		//$.fn.geocomplete("#postalCode");		
+	 }
+  });
+});
+
 Template.postalsearch.onCreated(function() {
+
 
 });
 
@@ -20,6 +34,10 @@ Template.postalsearch.events({
 
   "submit": function (event, template) {
 	searchPostalCode(event, template);
+  },
+  'click button': function() {
+    // Trigger geocoding request.
+    $("#postalCode").trigger("geocode");
   }
 
 });

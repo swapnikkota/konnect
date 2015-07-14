@@ -62,10 +62,10 @@ Template.lendItem.helpers({
       return Session.get("photo");
     },
 	loc: function () {
-      // return 0, 0 if the location isn't ready
-      return Geolocation.latLng() || { lat: 0, lng: 0 };
-    },
-    error: Geolocation.error
+       //return 0, 0 if the location isn't ready
+      //return Geolocation.latLng() || { lat: 0, lng: 0 };
+    }
+    //error: Geolocation.error
   });
   
 var addItem = function(event,template){
