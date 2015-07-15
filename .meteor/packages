@@ -12,7 +12,6 @@ ian:accounts-ui-bootstrap-3
 service-configuration
 iron:router
 mdg:camera
-yogiben:autoform-map
 dbarrett:dropzonejs
 cfs:standard-packages
 cfs:gridfs

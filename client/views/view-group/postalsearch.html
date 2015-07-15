@@ -1,7 +1,5 @@
 <template name="postalsearch">
 	<div  id = "postalSearch"  class="container-fluid">
-	
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/geocomplete/1.6.5/jquery.geocomplete.js"></script>
         <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
         	<div class="panel panel-default">
@@ -11,9 +9,17 @@
 			 			<div class="panel-body">
 			    		<form action="#" role="form">
 			    			<div class="form-group">
-									<input type="text" id="postalCode" name="postalCode" class="form-control input-lg" placeholder="Enter your postal code" required />
+									<input type="text" id="postalCode"  class="form-control input-lg" placeholder="Enter your postal code" required />
 			    			</div>
 								<input type="submit" value="Continue" class="btn btn-success btn-block">
+								
+							<div class="details">
+							  postal_code:      <span data-geo="postal_code"  ></span>
+							  Locality : <span data-geo="locality"  ></span>
+							  neighborhood : <span data-geo="neighborhood"  ></span>						  
+							  State:      <span data-geo="administrative_area_level_1"  ></span>
+							  Country : <span data-geo="country"  ></span>
+							</div>
   						</form>
 			    	</div>
 	    		</div>
