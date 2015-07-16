@@ -246,7 +246,7 @@ a:after {
 #register{
 	background: url(../img/register.jpg) no-repeat center top;
 	min-height : 94%;
-	padding-top:5%;
+	//padding-top:5%;
 	background-position-y : -95px;
 
 }
@@ -295,50 +295,6 @@ a:after {
 .embed-responsive-4by3{
 	padding-bottom : 42%;
 }
-
- @media only screen and (max-width : 320px) {
-        #postalSearch{
-			padding-top:35%;
-		}
-		#register{
-			padding-top:28%;
-			background-position-x : 15%;
-			background-position-y : -2%;
-		}
-		#headerwrap {
-			margin-top: 0px;
-			padding-top:15%;
-		}
-		#headerwrap p {
-			font-size : 20px;
-		}
-		.item-form{
-			margin-top : 13%;
-		}
-    }
-
-    /* Extra Small Devices, Phones */
-    @media only screen and (max-width : 480px) {
-		#headerwrap {
-			margin-top: 0px;
-			padding-top:10%;
-		}
-		#postalSearch{
-			padding-top:35%;
-		}
-		#register{
-			padding-top:28%;
-			background-position-x : 15%;
-			background-position-y : -2%;
-		}
-		#headerwrap p {
-			font-size : 20px;
-		}
-		.item-form{
-			margin-top : 13%;
-		}
-    }
-
 
 
 .camera-popup {
@@ -452,3 +408,50 @@ min-height : 79.5%;
 		color: #FFFFFF;
 		background-color: #eb5c32;
 	}
+
+
+ @media only screen and (max-width : 320px) {
+        #postalSearch{
+			padding-top:35%;
+		}
+		#register{
+			padding-top:4%;
+			background-position-x : 15%;
+			background-position-y : -2%;
+		}
+		#headerwrap {
+			margin-top: 0px;
+			padding-top:15%;
+		}
+		#headerwrap p {
+			font-size : 20px;
+		}
+		.item-form{
+			margin-top : 13%;
+		}
+    }
+
+    /* Extra Small Devices, Phones */
+    @media only screen and (max-width : 480px) {
+		#headerwrap {
+			margin-top: 0px;
+			padding-top:10%;
+		}
+		#postalSearch{
+			padding-top:35%;
+		}
+		#register{
+			padding-top:4%;
+			background-position-x : 15%;
+			background-position-y : -2%;
+		}
+		#headerwrap p {
+			font-size : 20px;
+		}
+		.item-form{
+			margin-top : 13%;
+		}
+    }
+
+
+
