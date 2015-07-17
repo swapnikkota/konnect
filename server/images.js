@@ -1,8 +1,8 @@
 var imgStorage = new FS.Store.S3("images", {
   /* REQUIRED */
   region : "ap-southeast-1",
-  accessKeyId: "AKIAJUQBRQFCZRQJBQDQ",
-  secretAccessKey: "yHQBwBCoXOlCVzvJKxouMxZjGSE/0n35fFl4oyvk",
+  accessKeyId: "your key",
+  secretAccessKey: "your secret key"",
   bucket: "konnect-items"
 });
 
