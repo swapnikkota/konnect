@@ -3,6 +3,6 @@ Meteor.publish('items', function(options) {
 });
 
 
-Meteor.publish("ItemImages", function(){
-  return ItemImages.find();
+Meteor.publish("BucketImages", function(){
+  return BucketImages.find();
 });

@@ -1,5 +1,5 @@
 Template.lendItem.onCreated(function() {
-  Session.set('itemLendErrors', {}); 
+  Session.set('itemLendErrors', {});
 });
 
 Template.lendItem.helpers({
@@ -18,7 +18,7 @@ var saveImage = function(error, data){
 	Session.set("photo", data);
 	var item = {pic : data, itemDesc : "testImage"};
 	Meteor.call('addItem', item, function(error) {
-    
+
     });
 }
 
@@ -31,7 +31,7 @@ Template.uploadActions.rendered = function(){
     Dropzone.autoDiscover = false;
 
     // Adds file uploading and adds the imageID of the file uploaded
-   
+
 	var previewNode = document.querySelector("#template");
 	previewNode.id = "";
 	var previewTemplate = previewNode.parentNode.innerHTML;
@@ -51,9 +51,9 @@ Template.uploadActions.rendered = function(){
 	});
 
 	myDropzone.on("addedfile", function(file) {
-		 img =  file;			  			
-	});				
-	
+		 img =  file;
+	});
+
 };
 
 
@@ -67,35 +67,37 @@ Template.lendItem.helpers({
     }
     //error: Geolocation.error
   });
-  
+
 var addItem = function(event,template){
-	event.preventDefault();    
+	event.preventDefault();
 	var imageOptions = {width : 100 , height : 200, quality : 100};
 	//var pic = MeteorCamera.getPicture(imageOptions, saveImage);
 	var imgFile = img;
 	fsFile = new FS.File(imgFile);
 					fsFile.metadata = {
-						ownerId:"sagi",
+						ownerId:Meteor.userId(),
 						itemDesc:  template.find('#itemDesc').value,
 						itemName : template.find('#itemName').value
-						}
-				ItemImages.insert(fsFile, function(err, fileObj){
+          }
+				BucketImages.insert(fsFile, function(err, fileObj){
 					console.log(err);
 					if(err){
 					  alert("Error");
 					} else {
 					  // gets the ID of the image that was uploaded
 					  var imageId = fileObj._id;
-					  myDropzone.removeAllFiles(true);					 
+            console.log(fileObj.url());
+
+					  myDropzone.removeAllFiles(true);
 					};
 				});
-				
+
 	/*var errors = validateAddItem(itemToFind);
 	if (errors.itemDesc)
-	  return Session.set('itemLendErrors', errors);*/	
-    
+	  return Session.set('itemLendErrors', errors);*/
+
 }
-  
+
 Template.lendItem.events({
   'click #lend': function(event, template) {
    addItem(event, template);
@@ -103,5 +105,26 @@ Template.lendItem.events({
   "submit": function (event, template) {
 	addItem(event, template);
   }
-  
+
+});
+
+var imgStorage = new FS.Store.S3("images");
+
+BucketImages = new FS.Collection("bucketimages", {
+ stores: [imgStorage],
+ filter: {
+   allow: {
+     contentTypes: ['image/*']
+   },
+   onInvalid: function(message) {
+     toastr.error(message);
+   }
+ }
+});
+
+// Allow rules
+BucketImages.allow({
+  insert: function() { return true; },
+  update: function() { return true; },
+  download: function() { return true; }
 });

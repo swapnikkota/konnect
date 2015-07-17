@@ -16,3 +16,4 @@ dbarrett:dropzonejs
 cfs:standard-packages
 cfs:gridfs
 jeremy:geocomplete
+cfs:s3
