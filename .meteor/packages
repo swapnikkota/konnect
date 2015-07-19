@@ -17,4 +17,13 @@ cfs:standard-packages
 cfs:gridfs
 jeremy:geocomplete
 
+
 useraccounts:bootstrap
+
+cfs:s3
+pahans:reactive-modal
+fastclick
+agnito:autogrow
+juliancwirko:s-alert
+momentjs:moment
+
