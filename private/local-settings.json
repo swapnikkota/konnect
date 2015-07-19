@@ -2,5 +2,8 @@
     "facebook" : {
         "clientId": "6719308929386812332",
         "secret": "b546b4a01772f340396c4cc34a1be755"
-    }
+    },
+    "AWSAccessKeyId" : "AKIAJUQBRQFCZRQJBQDQ",
+    "AWSSecretAccessKey" : "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",
+    "AWSBucket" : "konnect-items"
 }

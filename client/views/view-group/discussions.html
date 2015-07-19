@@ -1,0 +1,24 @@
+<template name="discussions">
+<div class="panel-body" id="discussionContainer">
+     <div id="scrollContainer" class="scroll-container">
+    {{#each discussions}}
+    <ul class="chat">
+
+        <li class="{{#if isUsersMessage user}}right clearfix{{else}}left clearfix{{/if}}">
+            <div class="chat-body">
+                <p>
+                     <div id="{{_id}}">
+
+                          <div class="{{#if isUsersMessage user}}bubble{{else}}bubble bubble_alt{{/if}}">
+                              <p><small>{{userToDisplay}}</small> <sup><small>{{createdDateTime}}</small></sup></p>
+                              <div class="messageBody"> {{message}} </div>
+                         </div>
+                     </div>
+                </p>
+            </div>
+        </li>
+    </ul>
+    {{/each}}
+        </div>
+</div>
+</template>

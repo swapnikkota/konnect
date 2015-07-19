@@ -402,12 +402,21 @@ min-height : 79.5%;
 	   background: rgba(255, 255, 255, 0.8);
 	    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
     }
-	
+
 	legend {
 		padding: 5px;
 		color: #FFFFFF;
 		background-color: #eb5c32;
 	}
+
+  .hero-spacer {
+    margin-top: 5px;
+  }
+
+  .hero-feature {
+    margin-bottom: 5px
+  }
+
 
 
  @media only screen and (max-width : 320px) {
@@ -451,7 +460,4 @@ min-height : 79.5%;
 		.item-form{
 			margin-top : 13%;
 		}
-    }
-
-
-
+}

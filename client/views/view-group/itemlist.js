@@ -5,31 +5,69 @@ Template.itemslist.onCreated(function() {
 			};
 			Session.set('itemSearched', itemToFind);
 		}
-			
+
 		Meteor.call('searchItem', Session.get('itemSearched'), function(error, result) {
 		  // display the error to the user and abort
 		  if (error)
-			return throwError(error.reason);      
-		
+			return throwError(error.reason);
+
 		  for ( var item in result.itemsForBorrow){
 			  if(result.itemsForBorrow[item].pic)
 				 Session.set('photo',  result.itemsForBorrow[item].pic)
 		  }
-		 
+
 		});*/
-  
+
+
 });
+
+Template.itemslist.helpers({
+
+	welcomeName :  function () {
+        if(Meteor.user().profile.name===null) {
+            return "there";
+        } else {
+            return Meteor.user().profile.name;
+        }
+    }
+
+});
+
 
 Meteor.subscribe("items");
 
 
-Meteor.subscribe("ItemImages");
+Meteor.subscribe("BucketImages");
+
 Template.itemslist.helpers({
   images: function () {
-    return ItemImages.find(); // Where Images is an FS.Collection instance
+    return BucketImages.find(); // Where Images is an FS.Collection instance
   }
 });
 
 
+Template.itemslist.events({
+  'click #btnInterested': function(event) {
+		Session.set("itemId",event.target.getAttribute("data-id"));
+		var discussDialogInfo = {
+    template: Template.chat,
+    title: "Discuss about this item",
+    modalDialogClass: "share-modal-dialog", //optional
+    modalBodyClass: "share-modal-body", //optional
+    modalFooterClass: "share-modal-footer",//optional
+    removeOnHide: true, //optional. If this is true, modal will be removed from DOM upon hiding
 
-  
+    buttons: {
+      "cancel": {
+        class: 'btn-danger',
+        label: 'Cancel'
+      }
+
+    }
+  }
+
+  var rd = ReactiveModal.initDialog(discussDialogInfo);
+	rd.show();
+
+  }
+});
