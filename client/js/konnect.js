@@ -32,6 +32,64 @@ Accounts.ui.config({
     } ]
 });
 
+Accounts.onLogin(function() {
+	console.log(Meteor.user());
+});
+
+accountsUIBootstrap3.logoutCallback = function(error) {
+  if(error) console.log("Error:" + error);
+  Session.set('itemSearched', "");
+  Router.go('/');
+}
+
+AccountsTemplates.configure({
+    confirmPassword: false,
+    enablePasswordChange: false,
+    forbidClientAccountCreation: false,
+    sendVerificationEmail: false,
+	showForgotPasswordLink: true
+   // homeRoutePath: '/',
+   // redirectTimeout: 2000,
+});
+
+AccountsTemplates.configure({
+    texts: {
+      title: {
+        changePwd: "Password Title",
+        enrollAccount: "Enroll Title",
+        forgotPwd: "Forgot Pwd Title",
+        resetPwd: "Reset Pwd Title",
+        signIn: "Sign In",
+        signUp: "Register now to notify your neighbours. It's free!",
+        verifyEmail: "Verify Email Title",
+      }
+    }
+});
+//AccountsTemplates.removeField('password_again');
+AccountsTemplates.addField({
+    _id: 'name',
+    type: 'text',
+    displayName: "Name",
+    func: function(value){return value !== 'Full Name';},
+    errStr: 'Only "Full Name" allowed!',
+	required: true
+});
+AccountsTemplates.addFields([
+    {
+        _id: 'streetName',
+        type: 'text',
+        displayName: "Street Name",
+		required: true
+    },
+    {
+        _id: 'buildingName',
+        type: 'text',
+        displayName: "Building Name",
+		required: true
+    }
+]);
+
+
 
 
 }

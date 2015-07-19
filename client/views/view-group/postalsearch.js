@@ -1,4 +1,5 @@
 Template.postalsearch.onRendered(function() {
+	Session.set('address',{});
   	this.autorun(function () {
     if (GoogleMaps.loaded()) {		     		 
 		$("#postalCode").geocomplete({ 
@@ -7,15 +8,21 @@ Template.postalsearch.onRendered(function() {
 			.bind("geocode:result", function(event, result){
 				var data = {};
 				console.log(result);
+				data['lat'] = result.geometry.location.A;
+				data['long'] = result.geometry.location.F;
+				//console.log("lat: " + result.geometry.location.A);
+				//console.log("long : " + result.geometry.location.F);
 				 $.each(result.address_components, function(index, object){
 					var name = object.types[0];
 
 					$.each(object.types, function(index, name){
+					 
 					  data[name] = object.long_name;
 					  data[name + "_short"] = object.short_name;
 					});
 				  });
 				  console.log(data);
+				  Session.set('address', data);
 			});	
 
 	 }

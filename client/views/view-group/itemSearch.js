@@ -26,7 +26,7 @@ var searchItem = function(event,template){
       // display the error to the user and abort
       if (error)
         return throwError(error.reason);      
-      console.log(result);
+      //console.log(result);
 	  Session.set('itemSearched', itemToFind);
 	   Session.set('searchResults', result.itemsForBorrow);
       Router.go('borrow', result.itemsForBorrow);  
