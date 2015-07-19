@@ -18,6 +18,7 @@ Template.itemslist.onCreated(function() {
 
 		});*/
 
+
 });
 
 Template.itemslist.helpers({
@@ -32,12 +33,41 @@ Template.itemslist.helpers({
 
 });
 
+
 Meteor.subscribe("items");
 
 
 Meteor.subscribe("BucketImages");
+
 Template.itemslist.helpers({
   images: function () {
     return BucketImages.find(); // Where Images is an FS.Collection instance
+  }
+});
+
+
+Template.itemslist.events({
+  'click #btnInterested': function(event) {
+		Session.set("itemId",event.target.getAttribute("data-id"));
+		var discussDialogInfo = {
+    template: Template.chat,
+    title: "Discuss about this item",
+    modalDialogClass: "share-modal-dialog", //optional
+    modalBodyClass: "share-modal-body", //optional
+    modalFooterClass: "share-modal-footer",//optional
+    removeOnHide: true, //optional. If this is true, modal will be removed from DOM upon hiding
+
+    buttons: {
+      "cancel": {
+        class: 'btn-danger',
+        label: 'Cancel'
+      }
+
+    }
+  }
+
+  var rd = ReactiveModal.initDialog(discussDialogInfo);
+	rd.show();
+
   }
 });

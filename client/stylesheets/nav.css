@@ -95,3 +95,16 @@
     padding-left: 0;
   }
 }
+
+
+#bottomNav {
+	padding:10px;
+}
+#bottomNav a {
+    color:#ddd;
+    text-decoration:none;
+}
+
+#bottomNav a:hover {
+    color:#fff;
+}

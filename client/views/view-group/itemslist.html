@@ -1,8 +1,7 @@
 <template name="itemslist">
 	{{> loginNav}}
-
-	<div class="container">
-			<div class="row">
+	<div class="container-fluid itemslist well">
+			<div class="row-fluid">
 					<div class="col-lg-12">
 							<h3>Items Available For Borrowing In Your Neighbourhood</h3>
 					</div>
@@ -16,19 +15,13 @@
 												<h3>{{this.metadata.itemName}}</h3>
 												<p>{{this.metadata.itemDesc}}</p>
 												<p>
-														<a href="#" id="btn-interest" class="btn btn-success">Interested</a> <a href="#" class="btn btn-default">More Info</a>
+														<button href="#" class="btn btn-success" id="btnInterested" data-id="{{this._id}}" >Interested</button>
+														<button href="#" class="btn btn-default" id="moreInfo" data-id="{{this._id}}"  >More Info</button>
 												</p>
 										</div>
 								</div>
 						</div>
 					  {{/each}}
 		</div>
-	</div>
-	{{> chat}}
-</template>
-
-<template name="chat">
-	<div id="chat" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-			something something
 	</div>
 </template>
