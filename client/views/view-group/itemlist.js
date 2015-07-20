@@ -51,19 +51,8 @@ Template.itemslist.events({
 		Session.set("itemId",event.target.getAttribute("data-id"));
 		var discussDialogInfo = {
     template: Template.chat,
-    title: "Discuss about this item",
-    modalDialogClass: "share-modal-dialog", //optional
-    modalBodyClass: "share-modal-body", //optional
-    modalFooterClass: "share-modal-footer",//optional
-    removeOnHide: true, //optional. If this is true, modal will be removed from DOM upon hiding
-
-    buttons: {
-      "cancel": {
-        class: 'btn-danger',
-        label: 'Cancel'
-      }
-
-    }
+    title: "Konnect",
+    removeOnHide: true //optional. If this is true, modal will be removed from DOM upon hiding
   }
 
   var rd = ReactiveModal.initDialog(discussDialogInfo);

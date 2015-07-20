@@ -5,16 +5,17 @@
     <ul class="chat">
 
         <li class="{{#if isUsersMessage user}}right clearfix{{else}}left clearfix{{/if}}">
-            <div class="chat-body">
-                <p>
-                     <div id="{{_id}}">
-
-                          <div class="{{#if isUsersMessage user}}bubble{{else}}bubble bubble_alt{{/if}}">
-                              <p><small>{{userToDisplay}}</small> <sup><small>{{createdDateTime}}</small></sup></p>
-                              <div class="messageBody"> {{message}} </div>
-                         </div>
-                     </div>
-                </p>
+           <span class="{{#if isUsersMessage user}}chat-img pull-right{{else}}chat-img pull-left{{/if}}">
+             <img src="{{#if isUsersMessage user}}http://placehold.it/50/55C1E7/fff&text=ME{{else}}http://placehold.it/50/55C1E7/fff&text=U{{/if}}" alt="User Avatar" class="img-circle" />
+            </span>
+            <div class="chat-body clearfix">
+                <div class="header">
+                    <strong class="{{#if isUsersMessage user}}pull-right primary-font{{else}}primary-font{{/if}}">{{userToDisplay}}</strong>
+                    <small class="{{#if isUsersMessage user}}pull-right text-muted{{else}} text-muted{{/if}}">
+                        <span class="glyphicon glyphicon-time"></span>{{createdDateTime}}
+                    </small>
+                </div>
+                <p>{{message}}</p>
             </div>
         </li>
     </ul>
