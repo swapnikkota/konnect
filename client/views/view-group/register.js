@@ -24,10 +24,8 @@ var trimmedElementValueById = function(id) {
 	Template.register.onRendered(function() {
 	
   	this.autorun(function () {
-    if (GoogleMaps.loaded() && Session.get("address").postal_code == null) {		     		 
-		$("#postalCode").geocomplete({ 
-			details: ".details",
-		    detailsAttribute: "data-geo" })
+    if (GoogleMaps.loaded() && Session.get("address") == null) {		     		 
+		$("#at-field-postalCode").geocomplete()
 			.bind("geocode:result", function(event, result){
 				var data = {};
 				console.log(result);				 
@@ -84,17 +82,13 @@ var registerUser = function(template){
 		});
 }
 
-Template.register.events({
 
-  'submit': function (event, template) {
-	registerUser(template);
-  },
-  'click button': function() {
+Template.atForm.events({ 
+  'keyup #at-field-postalCode': function() {
     // Trigger geocoding request.
-    $("#postalCode").trigger("geocode");
-  },
-   'click .register': function(event, template) {
-     registerUser(template);
+    $("#at-field-postalCode").trigger("geocode");
   }
-
 });
+
+
+

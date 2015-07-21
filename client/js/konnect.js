@@ -59,8 +59,8 @@ AccountsTemplates.configure({
         enrollAccount: "Enroll Title",
         forgotPwd: "Forgot Pwd Title",
         resetPwd: "Reset Pwd Title",
-        signIn: "Sign In",
-        signUp: "Register now to notify your neighbours. It's free!",
+        signIn: "",
+        signUp: "",
         verifyEmail: "Verify Email Title",
       }
     }
@@ -70,11 +70,17 @@ AccountsTemplates.addField({
     _id: 'name',
     type: 'text',
     displayName: "Name",
-    func: function(value){return value !== 'Full Name';},
+    //func: function(value){return value !== 'Full Name';},
     errStr: 'Only "Full Name" allowed!',
 	required: true
 });
 AccountsTemplates.addFields([
+	{
+        _id: 'postalCode',
+        type: 'text',
+        displayName: "PostalCode",
+		required: true
+    },
     {
         _id: 'streetName',
         type: 'text',
@@ -86,9 +92,28 @@ AccountsTemplates.addFields([
         type: 'text',
         displayName: "Building Name",
 		required: true
+    },	
+	{
+        _id: 'unit',
+        type: 'text',
+        displayName: "Unit Number",
+		required: true
+    },
+	{
+        _id: 'block',
+        type: 'text',
+        displayName: "Block",
+		required: true
     }
 ]);
 
+
+AccountsTemplates.configureRoute('signIn', {
+	layoutTemplate: 'appBody',
+	yieldTemplates: {
+			'register': {to: 'workarea'}
+		}
+});
 
 
 
