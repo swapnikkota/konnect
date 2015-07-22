@@ -30,19 +30,22 @@ Template.addressForm.onRendered(function() {
 });
 
 
-var searchPostalCode = function(event,template){
-	  event.preventDefault();
-    var postalCodeToFind = {
-      postalCode : template.find('#postalCode').value
-    };
-    Session.set('postalCode', postalCodeToFind);
-    Router.go('search', {});
+var registerAddress = function(template){	
+	var address = {
+		unit : template.find('#unit').value,
+	  blk : template.find('#blk').value,
+	  street : template.find('#street').value,
+	  building : template.find('#building').value,
+	  postalCode : Session.get("address").postal_code
+	};	
+	//user.profile["address"] = address;
+	console.log(address);	
 }
 
 Template.addressForm.events({
 
-  "submit": function (event, template) {
-	searchPostalCode(event, template);
+  "click .register": function (event, template) {
+	registerAddress(template);
   },
   'click button': function() {
     // Trigger geocoding request.

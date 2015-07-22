@@ -7,20 +7,59 @@
 			    		<h3 class="panel-title">Pick your neighbourhood<small></small></h3>
 			 			</div>
 			 			<div class="panel-body">
-			    		<form action="#" role="form">
+			    		<form action="#" role="form" id="postalForm">
 			    			<div class="form-group">
 									<input type="text" id="postalCode"  class="form-control input-lg" placeholder="Enter your postal code" required />
 			    			</div>
-								<input type="submit" value="Continue" class="btn btn-success btn-block">
-								
-							<div class="details">
-							  postal_code:      <span data-geo="postal_code"  ></span>
-							  Locality : <span data-geo="locality"  ></span>
-							  neighborhood : <span data-geo="neighborhood"  ></span>						  
-							  State:      <span data-geo="administrative_area_level_1"  ></span>
-							  Country : <span data-geo="country"  ></span>
-							</div>
+											
+							
   						</form>
+						
+						 <form role="form" id="address">
+				    			<div class="row">
+										<div class="col-xs-6 col-sm-6 col-md-6">
+											<div class="form-group">
+												<input type="text" name="unit" id="unit" class="form-control input-sm" placeholder="Unit #">
+											</div>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6">
+											<div class="form-group">
+												<input type="text" name="blk" id="blk" class="form-control input-sm" placeholder="Block">
+											</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12">
+											<div class="form-group">
+												<input type="text" name="postalCode" id="postalCode" value='{{postalCode}}' class="form-control input-sm" placeholder="Postal Code">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12">
+											<div class="form-group">
+												<input type="text" name="street" id="street" class="form-control input-sm" placeholder="Street Name">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12">
+											<div class="form-group">
+												<input type="text" name="building" id="building" class="form-control input-sm" placeholder="Building Name">
+											</div>
+										</div>
+									</div>
+
+									
+
+				    			 <a href="#"  class="btn btn-success btn-block register"> Submit </a>
+								 
+								 
+
+				    		</form>
 			    	</div>
 	    		</div>
     		</div>
