@@ -25,7 +25,9 @@ var trimmedElementValueById = function(id) {
 	
   	this.autorun(function () {
     if (GoogleMaps.loaded() && Session.get("address") == null) {		     		 
-		$("#at-field-postalCode").geocomplete()
+		$("#at-field-postalCode").geocomplete({ 
+			details: ".details",
+		    detailsAttribute: "data-geo" })
 			.bind("geocode:result", function(event, result){
 				var data = {};
 				console.log(result);				 

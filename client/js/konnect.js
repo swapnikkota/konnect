@@ -33,7 +33,12 @@ Accounts.ui.config({
 });
 
 Accounts.onLogin(function() {
-	console.log(Meteor.user());
+	if(Meteor.user().profile.postalCode == null){
+		Router.go('addressForm');
+	}else{
+		console.log(Meteor.user().profile.postalCode);
+	}
+	
 });
 
 accountsUIBootstrap3.logoutCallback = function(error) {
@@ -60,7 +65,7 @@ AccountsTemplates.configure({
         forgotPwd: "Forgot Pwd Title",
         resetPwd: "Reset Pwd Title",
         signIn: "",
-        signUp: "",
+        signUp: "Register now to notify your neighbours. It's free!",
         verifyEmail: "Verify Email Title",
       }
     }
@@ -74,47 +79,19 @@ AccountsTemplates.addField({
     errStr: 'Only "Full Name" allowed!',
 	required: true
 });
-AccountsTemplates.addFields([
-	{
-        _id: 'postalCode',
-        type: 'text',
-        displayName: "PostalCode",
-		required: true
-    },
-    {
-        _id: 'streetName',
-        type: 'text',
-        displayName: "Street Name",
-		required: true
-    },
-    {
-        _id: 'buildingName',
-        type: 'text',
-        displayName: "Building Name",
-		required: true
-    },	
-	{
-        _id: 'unit',
-        type: 'text',
-        displayName: "Unit Number",
-		required: true
-    },
-	{
-        _id: 'block',
-        type: 'text',
-        displayName: "Block",
-		required: true
-    }
-]);
+
 
 
 AccountsTemplates.configureRoute('signIn', {
 	layoutTemplate: 'appBody',
 	yieldTemplates: {
 			'register': {to: 'workarea'}
-		}
+		},
+	redirect: function(){
+        var user = Meteor.user();
+        if (user)
+          Router.go('addressForm');
+    }
 });
-
-
 
 }

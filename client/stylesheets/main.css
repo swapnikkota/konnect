@@ -244,7 +244,8 @@ a:after {
 	padding-top:10%;
 }
 #register{
-	background: url(../img/register.jpg) no-repeat center top;
+	//background: url(../img/register.jpg) no-repeat center top;
+	background: gainsboro;
 	min-height : 94%;
 	//padding-top:5%;
 	background-position-y : -95px;
