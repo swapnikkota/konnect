@@ -40,6 +40,8 @@ var registerAddress = function(template){
 	};	
 	//user.profile["address"] = address;
 	console.log(address);	
+	 Meteor.users.update({_id:Meteor.userId()}, { $set:{"profile.address":address}} );
+	 Router.go('borrow');
 }
 
 Template.addressForm.events({

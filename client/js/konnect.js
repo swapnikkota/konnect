@@ -1,5 +1,5 @@
 if (Meteor.isClient) {
-Accounts.ui.config({
+/*Accounts.ui.config({
     requestPermissions: {},
     extraSignupFields: [ {
         fieldName: 'name',
@@ -30,22 +30,27 @@ Accounts.ui.config({
             }
         }
     } ]
-});
+});*/
 
 Accounts.onLogin(function() {
-	if(Meteor.user().profile.postalCode == null){
+	if(Meteor.user().profile.address == null){
 		Router.go('addressForm');
 	}else{
-		console.log(Meteor.user().profile.postalCode);
+		console.log(Meteor.user().profile.address);
+		if(Router.current().route.getName() == null )
+			Router.go('borrow');
+		else
+			Router.go(Router.current().route.getName());
+		
 	}
 	
 });
 
-accountsUIBootstrap3.logoutCallback = function(error) {
+/*accountsUIBootstrap3.logoutCallback = function(error) {
   if(error) console.log("Error:" + error);
   Session.set('itemSearched', "");
   Router.go('/');
-}
+}*/
 
 AccountsTemplates.configure({
     confirmPassword: false,
@@ -89,8 +94,16 @@ AccountsTemplates.configureRoute('signIn', {
 		},
 	redirect: function(){
         var user = Meteor.user();
-        if (user)
+        if (user.profile.address == null)
           Router.go('addressForm');
+		else{
+			console.log(Meteor.user().profile.address);
+			if(Router.current().route.getName() == null )
+				Router.go('borrow');
+			else
+				Router.go(Router.current().route.getName());
+		}
+			
     }
 });
 
