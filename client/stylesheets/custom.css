@@ -1,0 +1,85 @@
+#register{
+  padding-top:7%;
+}
+
+.navbar-nav > li > a {
+color : white;
+}
+.white{
+color :white;
+}
+
+#postalSearch{
+	padding-top: 10%;
+	padding-bottom : 8%;
+}
+
+
+
+
+   
+
+
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+    color: rgba(245, 235, 235, 1);
+}
+#custom-bootstrap-menu.navbar-default {
+    font-size: 14px;
+    background-color: rgba(207, 49, 36, 1);
+    border-width: 1px;
+    border-radius: 4px;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    color: rgba(250, 250, 250, 1);
+    background-color: rgba(207, 49, 36, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(242, 242, 242, 1);
+    background-color: rgba(186, 43, 43, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(255, 252, 252, 1);
+    background-color: rgba(201, 24, 24, 1);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #c91818;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #c91818;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #c91818;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #cf3124;
+}
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	#postalSearch{
+		padding-top: 22%;
+	}
+	
+	#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar, 
+	#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar{
+		background-color: #fff;
+	}
+	
+	#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar{
+		background-color: #fff;
+	}
+	
+}
+
+
+
+@media only screen and (max-width : 320px) {
+
+}
+

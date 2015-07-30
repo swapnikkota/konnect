@@ -1,37 +1,21 @@
 <template name="itemSearch">
-	<div id="headerwrap" class="container">
-		<header class="clearfix">
-			<div  class="container-fluid">
-		        <div class="centered-form">
-							<p class="p_text_shadow"><strong>Share items with your neighbours</strong></p>
-	        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-		        	<div class="panel panel-default">
-		        		<div class="panel-heading">
-					    		<h3 class="panel-title">Enter an item to borrow<small></small></h3>
-					 			</div>
-					 			<div class="panel-body">
-					    		<form role="form">
-					    			<div class="form-group">
-											<input type="text" id="itemDesc" name="itemDesc" class="form-control input-lg" placeholder="e.g. Toolbox" required />
-											<p><span class="help-block">{{errorMessage 'itemDesc'}}</span></p>
-											<a href="{{pathFor 'borrow'}}" id="borrow" class="btn btn-lg btn-success custom-btn-size"> Borrow <span class="glyphicon glyphicon-circle-arrow-left"></span></a>
-										</div>
-										
-					    		</form>
-									<div class="row">
-										<div class="col-md-12" >
-											<label class="">Have things to Lend?</label>
-											<a href="{{pathFor 'lend'}}"   id="lend">
-												<span class="text-info"><strong> <u>Start Here</u></strong></span>
-											</a>
-										</div>
-									</div>
-					    	</div>
-			    		</div>
-		    		</div>
-		    	</div>
-		    </div>
-	</header>
-	</div>
+	<header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Sharing with Neighbours</h1>
+                <br>
+                     <h3 class="section-heading">Enter an item to borrow</h3>
+               <div class="input-group">
+                    <input id="itemDesc" type="textbox" name="itemDesc" class="form-control input-lg " placeholder="e.g. Toolbox" required="">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success btn-lg wow tada" type="button" id="borrow">Borrow <span class="glyphicon glyphicon-circle-arrow-left"></span></button>
+                    </span>
+                </div>
+                <br>
+                <br>
+                <h3 class="section-heading">Have things to Lend? <a href="{{pathFor 'lend'}}" class="btn btn-primary btn-lg page-scroll wow tada">Start here</a></h3>
+            </div>
+        </div>
+    </header>
 	{{> greywrap}}
 </template>
