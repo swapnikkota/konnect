@@ -1,4 +1,5 @@
 Template.itemslist.onCreated(function() {
+	console.log('inside itemlist created :'  + Session.get('itemSearched'));
 	/*if(!Session.get('itemSearched')){
 			 var itemToFind = {
 			  itemDesc : "test"

@@ -16,8 +16,9 @@ color :white;
 
 
 
-
-   
+ .item-form{
+	margin-top : 7%;
+ }
 
 
 #custom-bootstrap-menu.navbar-default .navbar-brand {
@@ -59,7 +60,125 @@ color :white;
     background-color: #cf3124;
 }
 
+.content{
+	width:95%;
+	max-width:1000px;
+	padding-top : 10px;
+	margin:0 auto;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+	
+	
+	.logo{width:30%;
+	min-width:104px;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	display:inline-block;
+	padding-top:8px;
+	position:relative;
+	float:left;
+	
+	}
 
+	
+	
+	.tab-nav {
+    width: 55%;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    -webkit-transition: width 0.3s,bottom 0.5s;
+    -moz-transition: width 0.3s,bottom 0.5s;
+    -o-transition: width 0.3s,bottom 0.5s;
+    transition: width 0.3s,bottom 0.5s;
+    position: relative;
+	margin-top : 0.5%;
+}
+
+.tab-nav ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+.tab-nav ul li {
+    width: 150px;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s
+}
+
+.tab-nav ul li:last-child a {
+    padding-top: 12px;
+    border-right: 1px solid #ab3427
+}
+
+.tab-nav ul li a {
+    height: 60px;
+    padding-top: 10px;
+    display: block;
+    border-left: 1px solid #ab3427;
+    color: #fff;
+    font-size: 11px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s
+}
+
+.bmt{
+margin-top : 5%;
+}
+
+.tab-nav ul li a:hover {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s
+}
+
+.tab-nav ul li.is-active+.item a,.tab-nav ul li:hover+.item a {
+    border-left: 1px solid #8a2516
+}
+
+.tab-nav ul li.is-active:last-child a,.tab-nav ul li:hover:last-child a {
+    border-right: 1px solid #8a2516
+}
+
+.tab-nav ul li.is-active a,.tab-nav ul li:hover a {
+    border-left: 1px solid #8a2516;
+    text-shadow: none;
+    background-color: #952a1e
+}
+
+.tab-nav ul li a:before,.tab-nav ul li a .before {
+    content: '';
+    display: block;
+    margin: 0 auto 1px;
+    clear: both;    
+    -webkit-background-size: 55px 50px;
+    -moz-background-size: 55px 50px;
+    -o-background-size: 55px 50px;
+    background-size: 55px 50px;
+    background-repeat: no-repeat
+}
+.itemslist{
+	margin-top: 5%;
+}
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
 	#postalSearch{
@@ -75,6 +194,27 @@ color :white;
 		background-color: #fff;
 	}
 	
+	.bmt{
+		margin-top : 2%;
+	}
+	
+	.tab-nav{
+		width : 100%;
+	}
+	
+	#register{
+	  padding-top:20%;
+	}
+	button.at-social-btn{
+		font-size : 14px;
+	}
+	.at-title h3{
+		font-size : 15px;
+	}
+	
+	 .item-form{
+		margin-top : 25%;
+	}		
 }
 
 

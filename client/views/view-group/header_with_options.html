@@ -1,29 +1,56 @@
 <template name="header_with_options">
 	<div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand" href="/">Konnect</a>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
+        <div class="navbar-header"><a class="navbar-brand bmt" href="/">Konnect</a>
+            <button type="button" class="navbar-toggle">
+				{{> atNavButton }}
             </button>
+			
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-left">
+		<ul class="nav navbar-nav navbar-right">
                 <li>
-                        <a class="page-scroll" href="#">Borrow</a>
+                        <a class="page-scroll pull-right" href="#">{{> atNavButton }}</a>
+                    </li> 
+            </ul>
+            <ul class="nav navbar-nav navbar-right tab-nav">
+                <li>
+                        <a class="page-scroll" href="{{pathFor 'borrow'}}">Borrow</a>
                     </li>
 					<li>
-                        <a class="page-scroll" href="#">Lend</a>
+                        <a class="page-scroll" href="{{pathFor 'lend'}}">Lend</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#">{{> atNavButton }}</a>
-                    </li>  
+                     
             </ul>
+			
         </div>
     </div>
 </div>
+ <nav id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-bottom visible-xs">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="col-xs-6">           
+            
+			 <ul class="nav navbar-nav navbar-right tab-nav">
+                <li>
+                        <a class="page-scroll" href="#">Borrow</a>
+                    </li>
+					
+                     
+            </ul>
+        </div>
+		
+		<div class="col-xs-6">           
+            
+			 <ul class="nav navbar-nav navbar-right tab-nav">
+                
+					<li>
+                        <a class="page-scroll" href="#">Lend</a>
+                    </li>
+                     
+            </ul>
+        </div>
+        
+    </nav>
 </template>
 	
 	

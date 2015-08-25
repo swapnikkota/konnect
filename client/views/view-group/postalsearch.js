@@ -8,11 +8,9 @@ Template.postalsearch.onRendered(function() {
 			.bind("geocode:result", function(event, result){
 				var data = {};
 				console.log(result);
-				data['lat'] = result.geometry.location.A;
-				data['long'] = result.geometry.location.F;
-				//console.log("lat: " + result.geometry.location.A);
-				//console.log("long : " + result.geometry.location.F);
-				 $.each(result.address_components, function(index, object){
+				data['latitude'] = result.geometry.location.G;
+				data['longitude'] = result.geometry.location.K;
+				$.each(result.address_components, function(index, object){
 					var name = object.types[0];
 
 					$.each(object.types, function(index, name){

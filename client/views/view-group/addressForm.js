@@ -8,8 +8,8 @@ Template.addressForm.onRendered(function() {
 			.bind("geocode:result", function(event, result){
 				var data = {};
 				console.log(result);
-				data['lat'] = result.geometry.location.A;
-				data['long'] = result.geometry.location.F;
+				data['latitude'] = result.geometry.location.G;
+				data['longitude'] = result.geometry.location.K;
 				//console.log("lat: " + result.geometry.location.A);
 				//console.log("long : " + result.geometry.location.F);
 				 $.each(result.address_components, function(index, object){
@@ -36,7 +36,11 @@ var registerAddress = function(template){
 	  blk : template.find('#blk').value,
 	  street : template.find('#street').value,
 	  building : template.find('#building').value,
-	  postalCode : Session.get("address").postal_code
+	  postalCode : Session.get("address").postal_code,
+	  loc: {
+		  longitude : Session.get('address').longitude,
+		  latitude : Session.get('address').latitude
+	  }
 	};	
 	//user.profile["address"] = address;
 	console.log(address);	

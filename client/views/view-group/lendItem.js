@@ -91,7 +91,8 @@ var addItem = function(event,template){
 					  myDropzone.removeAllFiles(true);
 					};
 				});
-
+	template.find('#itemDesc').value = '';	
+	template.find('#itemName').value ='';
 	/*var errors = validateAddItem(itemToFind);
 	if (errors.itemDesc)
 	  return Session.set('itemLendErrors', errors);*/
