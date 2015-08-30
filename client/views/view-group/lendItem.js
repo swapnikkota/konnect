@@ -37,22 +37,26 @@ Template.uploadActions.rendered = function(){
 	var previewTemplate = previewNode.parentNode.innerHTML;
 	previewNode.parentNode.removeChild(previewNode);
 
-	myDropzone = new Dropzone(document.body, {
-		// Make the whole body a dropzone
-	  url : 'cfs/files',
-	  thumbnailWidth: 80,
-	  thumbnailHeight: 80,
-	  parallelUploads: 20,
-	  autoProcessQueue : false,
-	  previewTemplate: previewTemplate,
-	  autoQueue: false, // Make sure the files aren't queued until manually added
-	  previewsContainer: "#previews", // Define the container to display the previews
-	  clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-	});
+	if(!document.body.dropzone){
+		myDropzone = new Dropzone(document.body, {
+			// Make the whole body a dropzone
+		  url : 'cfs/files',
+		  thumbnailWidth: 80,
+		  thumbnailHeight: 80,
+		  parallelUploads: 20,
+		  autoProcessQueue : false,
+		  previewTemplate: previewTemplate,
+		  autoDiscover  : false,
+		  autoQueue: false, // Make sure the files aren't queued until manually added
+		  previewsContainer: "#previews", // Define the container to display the previews
+		  clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+		});
 
-	myDropzone.on("addedfile", function(file) {
-		 img =  file;
-	});
+		myDropzone.on("addedfile", function(file) {
+			 img =  file;
+		});
+	}
+	
 
 };
 
@@ -72,22 +76,42 @@ var addItem = function(event,template){
 	event.preventDefault();
 	var imageOptions = {width : 100 , height : 200, quality : 100};
 	//var pic = MeteorCamera.getPicture(imageOptions, saveImage);
+	var errors = {};
+	 var itemDesc = template.find('#itemDesc').value;
+	 var itemName = template.find('#itemName').value;
+	 if (!itemDesc){
+		 errors.itemDesc = "Please specify item description.";
+	 }
+	 if (!itemName){
+		 errors.itemDesc = "Please specify item Name.";
+	 }
+	 if(!$.isEmptyObject(errors))
+		return Session.set('itemLendErrors', errors);
+	
+	if(Meteor.user().profile == null || Meteor.user().profile.address == null || Meteor.user().profile.address.loc == null){
+		alert("Please complete address details to upload");
+		return;
+	}
+	
+	var userLoc = Meteor.user().profile.address.loc;
 	var imgFile = img;
 	fsFile = new FS.File(imgFile);
-					fsFile.metadata = {
-						ownerId:Meteor.userId(),
-						itemDesc:  template.find('#itemDesc').value,
-						itemName : template.find('#itemName').value
-          }
-				BucketImages.insert(fsFile, function(err, fileObj){
-					console.log(err);
+	fsFile.userLocation  = userLoc;
+	/*fsFile.metadata = {						
+		ownerId:Meteor.userId(),
+		itemDesc:  itemDesc,
+		itemName : itemName
+    }*/
+	fsFile.ownerId = Meteor.userId();
+	fsFile.itemDesc = itemDesc;
+	fsFile.itemName = itemName;
+				BucketImages.insert(fsFile, function(err, fileObj){					
 					if(err){
-					  alert("Error");
+					  console.log(err);
 					} else {
 					  // gets the ID of the image that was uploaded
 					  var imageId = fileObj._id;
-            console.log(fileObj.url());
-
+					  console.log(fileObj.metadata);
 					  myDropzone.removeAllFiles(true);
 					};
 				});

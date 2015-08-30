@@ -1,5 +1,5 @@
 Template.itemslist.onCreated(function() {
-	console.log('inside itemlist created :'  + Session.get('itemSearched'));
+	//console.log('inside itemlist created :'  + Session.get('itemSearched'));
 	/*if(!Session.get('itemSearched')){
 			 var itemToFind = {
 			  itemDesc : "test"
@@ -42,7 +42,12 @@ Meteor.subscribe("BucketImages");
 
 Template.itemslist.helpers({
   images: function () {
-    return BucketImages.find(); // Where Images is an FS.Collection instance
+	var itemsToFind = {};			   
+	var itemSearched = Session.get('itemSearched');
+	if(itemSearched){
+		itemsToFind.itemName = itemSearched;
+	}
+	return BucketImages.find(); // Where Images is an FS.Collection instance		
   }
 });
 

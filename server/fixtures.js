@@ -1,5 +1,5 @@
 // Fixture data 
-if (Items.find().count() === 0) {
+/*if (Items.find().count() === 0) {
   var now = new Date().getTime();
   
   
@@ -8,4 +8,4 @@ if (Items.find().count() === 0) {
       itemDesc: 'cycle' + i     
     });
   }
-}
+}*/

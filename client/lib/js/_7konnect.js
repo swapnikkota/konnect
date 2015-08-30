@@ -36,8 +36,9 @@ Accounts.onLogin(function() {
 	if(Meteor.user().profile.address == null){
 		Router.go('addressForm');
 	}else{
-		console.log(Meteor.user().profile.address);
-		if(Router.current().route.getName() == null )
+		//console.log(Meteor.user().profile.address);
+		if(Router.current().route == null || Router.current().route.getName() == null || 
+				Router.current().route.getName() != 'lend')
 			Router.go('borrow');
 		else
 			Router.go(Router.current().route.getName());
@@ -97,8 +98,9 @@ AccountsTemplates.configureRoute('signIn', {
         if (user.profile.address == null)
           Router.go('addressForm');
 		else{
-			console.log(Meteor.user().profile.address);
-			if(Router.current().route.getName() == null )
+			//console.log(Meteor.user().profile.address);
+			if(Router.current().route == null || Router.current().route.getName() == null || 
+				Router.current().route.getName() != 'lend')
 				Router.go('borrow');
 			else
 				Router.go(Router.current().route.getName());
