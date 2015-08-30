@@ -16,10 +16,10 @@ Meteor.subscribe("items");
 var searchItem = function(event,template){
 	  event.preventDefault();    
     var itemToFind = {
-      itemDesc : template.find('#itemDesc').value 
+      itemName : template.find('#itemName').value 
     };
     var errors = validateItem(itemToFind);
-    if (errors.itemDesc)
+    if (errors.itemName)
       return Session.set('itemSubmitErrors', errors);
     
     Meteor.call('searchItem', itemToFind, function(error, result) {

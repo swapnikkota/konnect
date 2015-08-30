@@ -1,0 +1,3 @@
+db.cfs.bucketimages.filerecord.ensureIndex( { userLocation: "2d" } )
+db.cfs.bucketimages.filerecord.find({userLocation: {$near:[103,1]}}).limit(2)
+db.cfs.bucketimages.filerecord.find({userLocation: {$near:[103,1]}, "itemName":"test4"})

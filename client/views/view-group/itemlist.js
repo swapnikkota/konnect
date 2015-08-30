@@ -32,22 +32,23 @@ Template.itemslist.helpers({
         }
     }
 
-});
-
+})
 
 Meteor.subscribe("items");
 
-
-Meteor.subscribe("BucketImages");
+//Meteor.subscribe("AllBucketImages");
 
 Template.itemslist.helpers({
-  images: function () {
-	var itemsToFind = {};			   
-	var itemSearched = Session.get('itemSearched');
-	if(itemSearched){
-		itemsToFind.itemName = itemSearched;
+  images: function () {	
+	var itemToFind = Session.get('itemSearched');
+	if(itemToFind){				
+		Meteor.subscribe("BucketImages", itemToFind);
+		return BucketImages.find({"itemName" : itemToFind.itemName}); // Where Images is an FS.Collection instance	
+	}else{
+		Meteor.subscribe("AllBucketImages");
+		return BucketImages.find(); // Where Images is an FS.Collection instance	
 	}
-	return BucketImages.find(); // Where Images is an FS.Collection instance		
+		
   }
 });
 
