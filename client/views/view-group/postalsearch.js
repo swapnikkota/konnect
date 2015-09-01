@@ -1,10 +1,15 @@
 Template.postalsearch.onRendered(function() {
 	Session.set('address',{});
   	this.autorun(function () {
+		
     if (GoogleMaps.loaded()) {		     		 
 		$("#postalCode").geocomplete({ 
 			details: ".details",
-		    detailsAttribute: "data-geo" })
+		    detailsAttribute: "data-geo",
+			componentRestrictions: {country: "sg"},
+			types: ['(regions)']
+
+			})
 			.bind("geocode:result", function(event, result){
 				var data = {};
 				console.log(result);

@@ -4,7 +4,10 @@ Template.addressForm.onRendered(function() {
     if (GoogleMaps.loaded()) {		     		 
 		$("#postalCode").geocomplete({ 
 			details: ".details",
-		    detailsAttribute: "data-geo" })
+		    detailsAttribute: "data-geo",
+			componentRestrictions: {country: "sg"},
+			types: ['(regions)']
+		})
 			.bind("geocode:result", function(event, result){
 				var data = {};
 				data['latitude'] = result.geometry.location.G;
