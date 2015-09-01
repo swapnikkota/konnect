@@ -7,11 +7,8 @@ Template.addressForm.onRendered(function() {
 		    detailsAttribute: "data-geo" })
 			.bind("geocode:result", function(event, result){
 				var data = {};
-				console.log(result);
 				data['latitude'] = result.geometry.location.G;
 				data['longitude'] = result.geometry.location.K;
-				//console.log("lat: " + result.geometry.location.A);
-				//console.log("long : " + result.geometry.location.F);
 				 $.each(result.address_components, function(index, object){
 					var name = object.types[0];
 
@@ -21,7 +18,6 @@ Template.addressForm.onRendered(function() {
 					  data[name + "_short"] = object.short_name;
 					});
 				  });
-				  console.log(data);
 				  Session.set('address', data);
 			});	
 
@@ -37,15 +33,20 @@ var registerAddress = function(template){
 	  street : template.find('#street').value,
 	  building : template.find('#building').value,
 	  postalCode : Session.get("address").postal_code,
+	  neighborhood: Session.get('address').neighborhood,
 	  loc: {
 		  longitude : Session.get('address').longitude,
 		  latitude : Session.get('address').latitude
 	  }
+	  
 	};	
-	//user.profile["address"] = address;
-	console.log(address);	
 	 Meteor.users.update({_id:Meteor.userId()}, { $set:{"profile.address":address}} );
-	 Router.go('borrow');
+	 if(Session.get('lend')){
+		 Router.go('lend');
+	 }else{
+		 Router.go('borrow');
+	 }
+	 
 }
 
 Template.addressForm.events({

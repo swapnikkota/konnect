@@ -45,7 +45,7 @@ var trimmedElementValueById = function(id) {
 			});	
 
 	 }else{
-		 console.log('got address details from postal search form');
+		 //console.log('got address details from postal search form');
 	 }
   });
 });

@@ -105,6 +105,7 @@ var addItem = function(event,template){
 	fsFile.ownerId = Meteor.userId();
 	fsFile.itemDesc = itemDesc;
 	fsFile.itemName = itemName;
+	fsFile.neighborhood = Meteor.user().profile.address.neighborhood;
 				BucketImages.insert(fsFile, function(err, fileObj){					
 					if(err){
 					  console.log(err);
