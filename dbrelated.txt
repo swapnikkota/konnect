@@ -1,5 +1,6 @@
 db.cfs.bucketimages.filerecord.ensureIndex( { userLocation: "2d" } )
 db.cfs.bucketimages.filerecord.ensureIndex({userLocation:"2d", ownerId:1})
-db.cfs.bucketimages.filerecord.find({userLocation: {$near:[103,1]}}).limit(2)
-db.cfs.bucketimages.filerecord.find({ownerId :  { $ne:  "sncknXkbKYvLMc785"} , userLocation: {$near:[103,1]} } )
-
+db.cfs.bucketimages.filerecord.find({userLocation: {$near:[103.954746,1]}}).limit(2)
+db.cfs.bucketimages.filerecord.find({ownerId :  { $ne:  "5NdPRDBjL8Le5JBLd"} , userLocation: {$near:[103.954746,1.351127]},"neighborhood": Tampines } )
+db.cfs.bucketimages.filerecord.find({"ownerId" :  { $ne:  "jKnEGovcNEB4WoKbf"}}, { limit: 2 });
+103.954746:1.351127:Tampines:5NdPRDBjL8Le5JBLd

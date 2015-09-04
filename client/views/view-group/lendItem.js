@@ -112,7 +112,7 @@ var addItem = function(event,template){
 					} else {
 					  // gets the ID of the image that was uploaded
 					  var imageId = fileObj._id;
-					  console.log(fileObj.metadata);
+					 // console.log(fileObj.metadata);
 					  myDropzone.removeAllFiles(true);
 					};
 				});

@@ -215,11 +215,17 @@ margin-top : 5%;
 	 .item-form{
 		margin-top : 25%;
 	}		
+	.itemslist{
+		margin-top: 8%;
+	}
+
 }
 
 
 
 @media only screen and (max-width : 320px) {
-
+	.bmt{
+		margin-top : 2%;
+	}
 }
 

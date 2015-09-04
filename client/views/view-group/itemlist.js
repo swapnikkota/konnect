@@ -1,59 +1,53 @@
-Template.itemslist.onCreated(function() {
-	//console.log('inside itemlist created :'  + Session.get('itemSearched'));
-	/*if(!Session.get('itemSearched')){
-			 var itemToFind = {
-			  itemDesc : "test"
-			};
-			Session.set('itemSearched', itemToFind);
-		}
-
-		Meteor.call('searchItem', Session.get('itemSearched'), function(error, result) {
-		  // display the error to the user and abort
-		  if (error)
-			return throwError(error.reason);
-
-		  for ( var item in result.itemsForBorrow){
-			  if(result.itemsForBorrow[item].pic)
-				 Session.set('photo',  result.itemsForBorrow[item].pic)
-		  }
-
-		});*/
-
-
-});
-
-Template.itemslist.helpers({
-
-	welcomeName :  function () {
-        if(Meteor.user().profile.name===null) {
-            return "there";
-        } else {
-            return Meteor.user().profile.name;
-        }
-    }
-
-})
-
+var ITEMS_INCREMENT = 3;
 Meteor.subscribe("items");
 
-//Meteor.subscribe("AllBucketImages");
+incrementLimit = function() {
+  newLimit = Session.get('itemsLimit') + ITEMS_INCREMENT;
+  Session.set('itemsLimit', newLimit);
+}
+
+Template.itemslist.onCreated(function() {	
+	Session.setDefault('itemsLimit', ITEMS_INCREMENT);	
+	var itemToFind = Session.get('itemSearched');
+	
+	// Deps.autorun() automatically rerun the subscription whenever Session.get('limit') changes
+	// http://docs.meteor.com/#deps_autorun
+	Deps.autorun(function() {
+		if(itemToFind){				
+			Meteor.subscribe("BucketImages", itemToFind, Session.get('itemsLimit'));				
+		}else{
+			Meteor.subscribe("AllBucketImages", Session.get('itemsLimit'));			
+		}
+	});
+});
+
 
 Template.itemslist.helpers({
   images: function () {	
 	var itemToFind = Session.get('itemSearched');
 	if(itemToFind){				
-		Meteor.subscribe("BucketImages", itemToFind);
-		return BucketImages.find({"itemName" : itemToFind.itemName}); // Where Images is an FS.Collection instance	
+		return BucketImages.find({"itemName" : itemToFind.itemName}, { limit: Session.get('itemsLimit') }); // Where Images is an FS.Collection instance	
 	}else{
-		Meteor.subscribe("AllBucketImages");
-		return BucketImages.find(); // Where Images is an FS.Collection instance	
+		return BucketImages.find({}, { limit: Session.get('itemsLimit') }); // Where Images is an FS.Collection instance	
 	}
 		
   }
 });
 
 
+Template.itemslist.rendered = function() {
+  // is triggered every time we scroll
+  $(window).scroll(function() {
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+      incrementLimit();
+    }
+  });
+}
+ 
 Template.itemslist.events({
+  'click .give-me-more': function(evt) {
+    incrementLimit();
+  },
   'click #btnInterested': function(event) {
 		Session.set("itemId",event.target.getAttribute("data-id"));
 		var discussDialogInfo = {
