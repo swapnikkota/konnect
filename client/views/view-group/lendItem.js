@@ -97,11 +97,7 @@ var addItem = function(event,template){
 	var imgFile = img;
 	fsFile = new FS.File(imgFile);
 	fsFile.userLocation  = userLoc;
-	/*fsFile.metadata = {						
-		ownerId:Meteor.userId(),
-		itemDesc:  itemDesc,
-		itemName : itemName
-    }*/
+	
 	fsFile.ownerId = Meteor.userId();
 	fsFile.itemDesc = itemDesc;
 	fsFile.itemName = itemName;
@@ -143,7 +139,7 @@ BucketImages = new FS.Collection("bucketimages", {
      contentTypes: ['image/*']
    },
    onInvalid: function(message) {
-     toastr.error(message);
+     console.error(message);
    }
  }
 });

@@ -45,16 +45,20 @@
 						</div>
 						<div class="social">
 							<ul>
-								<li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+								<a class="btn icon-btn btn-primary"  id="btnInterested" data-id="{{this._id}}" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Interested</a>
+								<a class="btn icon-btn btn-info"  id="moreInfo" data-id="{{this._id}}" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span> More Info</a>
+							    <!--<li><a href="#" id="btnInterested" data-id="{{this._id}}" class="btn btn-inverse btn-large"><i class="icon-white icon-thumbs-up"></i> Interested</a></li>
+								<li><a href="#" id="moreInfo" data-id="{{this._id}}" class="btn btn-inverse btn-large"><i class="icon-white icon-thumbs-up"></i></a></li>-->
+								<!--<li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
 								<li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
-								<li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+								<li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>-->
 							</ul>
 						</div>
 					</li>
 			{{/each}}					
 				</ul>
 			</div>
-			 <button class="btn btn-success">Load More</button>
+			 <button class="btn btn-success give-me-more">Load More</button>
 		</div>
 	</div>
 	

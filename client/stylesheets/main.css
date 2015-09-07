@@ -523,6 +523,8 @@ body {
 	.event-list > li > .info {
 		padding-top: 5px;
 		text-align: center;
+		background-color: black;
+		color : white;
 	}
 	.event-list > li > .info > .title {
 		font-size: 17pt;
@@ -539,7 +541,7 @@ body {
 		display: table;
 		list-style: none;
 		margin: 10px 0px 0px;
-		padding: 0px;
+		padding: 12%;
 		width: 100%;
 		text-align: center;
 	}
@@ -631,6 +633,8 @@ body {
 			height: 120px;
 			text-align: left;
 			padding-right: 40px;
+			background-color: black;
+			color : white;
 		}	
 		.event-list > li > .info > .title, 
 		.event-list > li > .info > .desc {
@@ -646,7 +650,7 @@ body {
 			top: 0px;
 			right: 0px;
 			display: block;
-			width: 40px;
+			width: 22%;
 		}
         .event-list > li > .social > ul {
             border-left: 1px solid rgb(230, 230, 230);
@@ -661,3 +665,6 @@ body {
 			padding: 10px 0px 9px;
 		}
 	}
+	
+	.btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px;  }
+.icon-btn { padding: 1px 15px 3px 2px; border-radius:50px; margin-top : 2%; margin-bottom : 5%;}
