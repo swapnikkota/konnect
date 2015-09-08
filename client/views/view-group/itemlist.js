@@ -13,7 +13,7 @@ Template.itemslist.onCreated(function() {
 	// Deps.autorun() automatically rerun the subscription whenever Session.get('limit') changes
 	// http://docs.meteor.com/#deps_autorun
 	Deps.autorun(function() {
-		if(itemToFind){				
+		if(itemToFind){		
 			Meteor.subscribe("BucketImages", itemToFind, Session.get('itemsLimit'));				
 		}else{
 			Meteor.subscribe("AllBucketImages", Session.get('itemsLimit'));			

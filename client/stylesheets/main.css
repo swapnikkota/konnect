@@ -650,7 +650,7 @@ body {
 			top: 0px;
 			right: 0px;
 			display: block;
-			width: 22%;
+			width: 8%;
 		}
         .event-list > li > .social > ul {
             border-left: 1px solid rgb(230, 230, 230);
@@ -658,6 +658,7 @@ body {
 		.event-list > li > .social > ul > li {			
 			display: block;
             padding: 0px;
+			margin-bottom : 8%;
 		}
 		.event-list > li > .social > ul > li > a {
 			display: block;
@@ -667,4 +668,10 @@ body {
 	}
 	
 	.btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px;  }
-.icon-btn { padding: 1px 15px 3px 2px; border-radius:50px; margin-top : 2%; margin-bottom : 5%;}
+.icon-btn { padding: 1px 15px 3px 2px; border-radius:50px; }
+
+@media (max-width: 320px) {
+	.event-list > li > .social {
+		width: 20%;
+	}
+}
