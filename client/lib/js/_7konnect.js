@@ -53,12 +53,21 @@ Accounts.onLogin(function() {
   Router.go('/');
 }*/
 
+var myPostLogout = function(){
+    //example redirect after logout
+	Session.keys = {};
+	console.log('logout called');
+	Router.go('/');    
+};
+
+
 AccountsTemplates.configure({
     confirmPassword: false,
     enablePasswordChange: false,
     forbidClientAccountCreation: false,
     sendVerificationEmail: false,
-	showForgotPasswordLink: true
+	showForgotPasswordLink: true,
+	onLogoutHook: myPostLogout
    // homeRoutePath: '/',
    // redirectTimeout: 2000,
 });

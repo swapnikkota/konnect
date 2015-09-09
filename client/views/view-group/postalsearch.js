@@ -12,7 +12,7 @@ Template.postalsearch.onRendered(function() {
 			})
 			.bind("geocode:result", function(event, result){
 				var data = {};
-				console.log(result);
+				//console.log(result);
 				data['latitude'] = result.geometry.location.G;
 				data['longitude'] = result.geometry.location.K;
 				$.each(result.address_components, function(index, object){
@@ -24,7 +24,7 @@ Template.postalsearch.onRendered(function() {
 					  data[name + "_short"] = object.short_name;
 					});
 				  });
-				  console.log(data);
+				  //console.log(data);
 				  Session.set('address', data);
 			});	
 

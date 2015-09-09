@@ -42,6 +42,7 @@ Template.itemslist.rendered = function() {
       incrementLimit();
     }
   });
+  
 }
  
 Template.itemslist.events({
@@ -58,6 +59,8 @@ Template.itemslist.events({
 
   var rd = ReactiveModal.initDialog(discussDialogInfo);
 	rd.show();
+	//Router.go('addressForm');
+	//Router.go('chat', {});
 
   }
 });
