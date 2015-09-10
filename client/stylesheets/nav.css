@@ -29,6 +29,10 @@
   font-size: 30px;
 }
 
+.navbar-btn {
+   margin-top: 1px; 
+   margin-bottom: 1px;
+}
 
 .nav-justified {
   background-color: #eee;
