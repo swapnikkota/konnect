@@ -13,6 +13,5 @@ Template.chatNav.events({
 });
 
 Template.chatNav.created = function () {
-    $('#itmDiscuss').hide();
-    console.log('asds');
+    $('#itmDiscuss').hide();  
 };

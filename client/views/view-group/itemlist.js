@@ -50,15 +50,17 @@ Template.itemslist.events({
     incrementLimit();
   },
   'click #btnInterested': function(event) {
-		Session.set("itemId",event.target.getAttribute("data-id"));
-		var discussDialogInfo = {
+		Session.set("itemId", event.target.parentNode.getAttribute("data-id"));
+		/*var discussDialogInfo = {
     template: Template.chat,
     title: "Konnect",
     removeOnHide: true //optional. If this is true, modal will be removed from DOM upon hiding
   }
 
   var rd = ReactiveModal.initDialog(discussDialogInfo);
-	rd.show();
+	rd.show();*/
+	
+	Meteor.defer(function() { Router.go('chat'); })
 	//Router.go('addressForm');
 	//Router.go('chat', {});
 
