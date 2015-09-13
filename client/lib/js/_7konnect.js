@@ -79,8 +79,8 @@ AccountsTemplates.configure({
         enrollAccount: "Enroll Title",
         forgotPwd: "Forgot Pwd Title",
         resetPwd: "Reset Pwd Title",
-        signIn: "",
-        signUp: "Register now to connect with your neighbours. It's free!",
+        signIn: "Login with your credentials.",
+        signUp: "Connect with your neighbours.",
         verifyEmail: "Verify Email Title",
       }
     }
