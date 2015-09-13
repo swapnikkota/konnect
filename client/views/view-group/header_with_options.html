@@ -5,52 +5,50 @@
             <button type="button" class="navbar-toggle">
 				{{> atNavButton }}
             </button>
-			
+
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder">
 		<ul class="nav navbar-nav navbar-right">
                 <li>
                         <a class="page-scroll pull-right" href="#">{{> atNavButton }}</a>
-                    </li> 
+                    </li>
             </ul>
             <ul class="nav navbar-nav navbar-right tab-nav">
                 <li>
-                        <a class="page-scroll" href="{{pathFor 'borrow'}}">Borrow</a>
+                        <a class="page-scroll" href="{{pathFor 'borrow'}}"><span class="glyphicon glyphicon-log-in"> <strong>Borrow</strong></span></a>
                     </li>
 					<li>
-                        <a class="page-scroll" href="{{pathFor 'lend'}}">Lend</a>
+                        <a class="page-scroll" href="{{pathFor 'lend'}}"><span class="glyphicon glyphicon-log-out"> <strong>Lend</strong></span></a>
                     </li>
-                     
+
             </ul>
-			
+
         </div>
     </div>
 </div>
  <nav id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-bottom visible-xs">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="col-xs-6">           
-            
+        <div class="col-xs-6">
+
 			 <ul class="nav navbar-nav navbar-right tab-nav">
                 <li>
-                        <a class="page-scroll" href="{{pathFor 'borrow'}}">Borrow</a>
+                        <a class="page-scroll" href="{{pathFor 'borrow'}}"><span class="glyphicon glyphicon-log-in"> <strong>Borrow</strong></span></a>
                     </li>
-					
-                     
+
+
             </ul>
         </div>
-		
-		<div class="col-xs-6">           
-            
+
+		<div class="col-xs-6">
+
 			 <ul class="nav navbar-nav navbar-right tab-nav">
-                
+
 					<li>
-                        <a class="page-scroll" href="{{pathFor 'lend'}}">Lend</a>
+                        <a class="page-scroll" href="{{pathFor 'lend'}}"><span class="glyphicon glyphicon-log-out"> <strong>Lend</strong></span></a>
                     </li>
-                     
+
             </ul>
         </div>
-        
+
     </nav>
 </template>
-	
-	
