@@ -36,15 +36,15 @@ Accounts.onLogin(function() {
 	if(Meteor.user().profile.address == null){
 		Router.go('addressForm');
 	}else{
-		if(Router.current() == null || Router.current().route == null || 
-				Router.current().route.getName() == null || 
+		if(Router.current() == null || Router.current().route == null ||
+				Router.current().route.getName() == null ||
 				Router.current().route.getName() != 'lend')
 			Router.go('borrow');
 		else
 			Router.go(Router.current().route.getName());
-		
+
 	}
-	
+
 });
 
 /*accountsUIBootstrap3.logoutCallback = function(error) {
@@ -57,7 +57,7 @@ var myPostLogout = function(){
     //example redirect after logout
 	Session.keys = {};
 	console.log('logout called');
-	Router.go('/');    
+	Router.go('/');
 };
 
 
@@ -80,7 +80,7 @@ AccountsTemplates.configure({
         forgotPwd: "Forgot Pwd Title",
         resetPwd: "Reset Pwd Title",
         signIn: "",
-        signUp: "Register now to notify your neighbours. It's free!",
+        signUp: "Register now to connect with your neighbours. It's free!",
         verifyEmail: "Verify Email Title",
       }
     }
@@ -110,7 +110,7 @@ AccountsTemplates.configureRoute('signIn', {
 			if(Session.get('lend')){
 				Router.go('lend');
 			}
-			else if(Router.current() ==null || Router.current().route == null || Router.current().route.getName() == null || 
+			else if(Router.current() ==null || Router.current().route == null || Router.current().route.getName() == null ||
 				Router.current().route.getName() != 'lend'){
 					Router.go('borrow');
 				}
@@ -118,7 +118,7 @@ AccountsTemplates.configureRoute('signIn', {
 				Router.go(Router.current().route.getName());
 			}
 		}
-			
+
     }
 });
 
