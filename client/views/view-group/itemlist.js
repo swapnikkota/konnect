@@ -50,7 +50,7 @@ Template.itemslist.events({
     incrementLimit();
   },
   'click #btnInterested': function(event) {
-		Session.set("itemId", event.target.parentNode.getAttribute("data-id"));
+		Session.set("itemId", event.target.getAttribute("data-id"));
 		/*var discussDialogInfo = {
     template: Template.chat,
     title: "Konnect",
