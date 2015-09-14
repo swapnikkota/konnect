@@ -6,8 +6,10 @@ Meteor.publish('items', function(options) {
 Meteor.publish("BucketImages", function(itemToFind, limit){
 	
 	var user = Meteor.users.findOne(this.userId);
-	if(user && user.profile.address && user.profile.address.loc  && user.profile.address.loc.longitude){		
-		console.log(itemToFind.itemName);
+	if(user && user.profile.address && user.profile.address.loc  && user.profile.address.loc.longitude){
+	console.log("displaying all the items near his area" + user.profile.address.loc.longitude + ":" +
+		user.profile.address.loc.latitude + ":" + user.profile.address.neighborhood + ":" + 
+		this.userId + "for item : " + itemToFind.itemName);
 		return BucketImages.find(
 				{"userLocation": {$near:[user.profile.address.loc.longitude,user.profile.address.loc.latitude]},
 				"neighborhood": user.profile.address.neighborhood,

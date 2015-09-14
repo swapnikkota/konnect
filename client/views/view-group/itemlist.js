@@ -50,19 +50,11 @@ Template.itemslist.events({
     incrementLimit();
   },
   'click #btnInterested': function(event) {
-		Session.set("itemId", event.target.getAttribute("data-id"));
-		/*var discussDialogInfo = {
-    template: Template.chat,
-    title: "Konnect",
-    removeOnHide: true //optional. If this is true, modal will be removed from DOM upon hiding
-  }
-
-  var rd = ReactiveModal.initDialog(discussDialogInfo);
-	rd.show();*/
-	
+	Session.set("itemId", event.target.getAttribute("data-id"));
 	Meteor.defer(function() { Router.go('chat'); })
-	//Router.go('addressForm');
-	//Router.go('chat', {});
-
+  },
+   'click #image': function(event) {
+	Session.set("itemId", event.target.getAttribute("data-id"));
+	Meteor.defer(function() { Router.go('chat'); })
   }
 });

@@ -60,6 +60,18 @@ var myPostLogout = function(){
 	Router.go('/');
 };
 
+var mySubmitFunc = function(error, state){
+  if (!error) {
+    if (state === "signIn") {
+      // Successfully logged in
+      
+    }
+    if (state === "signUp") {
+      // Successfully registered
+      Router.go('addressForm');
+    }
+  }
+};
 
 AccountsTemplates.configure({
     confirmPassword: false,
@@ -67,7 +79,8 @@ AccountsTemplates.configure({
     forbidClientAccountCreation: false,
     sendVerificationEmail: false,
 	showForgotPasswordLink: true,
-	onLogoutHook: myPostLogout
+	onLogoutHook: myPostLogout,
+	onSubmitHook: mySubmitFunc
    // homeRoutePath: '/',
    // redirectTimeout: 2000,
 });

@@ -13,11 +13,11 @@
 		{{#each images}}
 			<div class="col-xs-12">
 							<div class="product-col list clearfix">
-								<div class="image">
-									<img  src={{this.url}} alt="product" class="img-responsive">
+								<div class="image col-md-3 images-block">
+									<img id="image" data-id="{{this._id}}"  src={{this.url}} alt="product" class="img-responsive thumbnail crp">
 								</div>
 								<div class="caption">
-									<h4><a id="btnInterested" data-id="{{this._id}}">{{this.itemName}}</a></h4>
+									<h4><a id="btnInterested" class="crp" data-id="{{this._id}}">{{this.itemName}}</a></h4>
 									<div class="description">
 										{{this.itemDesc}}
 									</div>

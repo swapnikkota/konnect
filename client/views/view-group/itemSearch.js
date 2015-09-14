@@ -39,6 +39,10 @@ Template.itemSearch.events({
   },
   "submit": function (event, template) {
 	searchItem(event, template);
+  },
+  "click #register-flow": function (event, template) {
+	Meteor.defer(function() { Router.go('lend'); })
   }
+  
   
 });
