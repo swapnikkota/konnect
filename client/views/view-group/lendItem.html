@@ -28,15 +28,20 @@
 			
 			<div class="form-group">
 			  <label class="col-md-4 control-label" for="uploadActions"></label>
-			  <div class="col-md-4">                     
+			  <div class="col-md-2">                     
 				{{> uploadActions}}
 			  </div>
+			  <div class="col-md-2">                     
+				 <a href="#" class="takePhoto btn btn-primary visible-xs">take photo</a>
+			  </div>
+			 
 			</div>
-
+			<img class="photo">
 			
 		   {{>uploadPreview}}
-
-			<!-- Button -->
+			
+			
+			<!-- Button -->	
 			<div class="form-group">
 			  <label class="col-md-4 control-label" for="singlebutton"></label>
 			  <div class="col-md-4">
@@ -104,6 +109,7 @@
  
 </div>
 </template>
+
 
 
 

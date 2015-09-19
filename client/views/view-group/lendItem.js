@@ -13,15 +13,6 @@ Template.lendItem.helpers({
 
 Meteor.subscribe("items");
 
-var saveImage = function(error, data){
-	console.log(data);
-	Session.set("photo", data);
-	var item = {pic : data, itemDesc : "testImage"};
-	Meteor.call('addItem', item, function(error) {
-
-    });
-}
-
 var img;
 var myDropzone;
 Template.uploadActions.rendered = function(){
@@ -72,8 +63,6 @@ Template.lendItem.helpers({
 
 var addItem = function(event,template){
 	event.preventDefault();
-	var imageOptions = {width : 100 , height : 200, quality : 100};
-	//var pic = MeteorCamera.getPicture(imageOptions, saveImage);
 	var errors = {};
 	 var itemDesc = template.find('#itemDesc').value;
 	 var itemName = template.find('#itemName').value;
@@ -93,23 +82,31 @@ var addItem = function(event,template){
 	
 	var userLoc = Meteor.user().profile.address.loc;
 	var imgFile = img;
-	fsFile = new FS.File(imgFile);
+	fsFile = {};
+	if(Session.get('photo')){
+		fsFile = new FS.File(Session.get('photo'));
+	}else{
+		fsFile = new FS.File(imgFile);
+	}
+	//fsFile = new FS.File(imgFile);
 	fsFile.userLocation  = userLoc;
 	
 	fsFile.ownerId = Meteor.userId();
 	fsFile.itemDesc = itemDesc;
 	fsFile.itemName = itemName;
 	fsFile.neighborhood = Meteor.user().profile.address.neighborhood;
-				BucketImages.insert(fsFile, function(err, fileObj){					
-					if(err){
-					  console.log(err);
-					} else {
-					  // gets the ID of the image that was uploaded
-					  var imageId = fileObj._id;
-					 // console.log(fileObj.metadata);
-					  myDropzone.removeAllFiles(true);
-					};
-				});
+	BucketImages.insert(fsFile, function(err, fileObj){					
+		if(err){
+		  console.log(err);
+		} else {
+		  // gets the ID of the image that was uploaded
+		  var imageId = fileObj._id;
+		  template.find('.photo').src = '';	
+		  Session.set('photo','');
+		 // console.log(fileObj.metadata);
+		  myDropzone.removeAllFiles(true);
+		};
+	});
 	template.find('#itemDesc').value = '';	
 	template.find('#itemName').value ='';
 	/*var errors = validateAddItem(itemToFind);
@@ -118,15 +115,39 @@ var addItem = function(event,template){
 
 }
 
+
+
+var saveImage = function(error, data){
+	console.log(data);
+	Session.set("photo", data);
+	var item = {pic : data, itemDesc : "testImage"};
+	/*Meteor.call('addItem', item, function(error) {
+
+    });*/
+}
+
 Template.lendItem.events({
   'click #lend': function(event, template) {
    addItem(event, template);
   },
   "submit": function (event, template) {
 	addItem(event, template);
-  }
+  },
+  'click .takePhoto': function(event, template) {
+        var cameraOptions = {width : 100 , height : 200, quality : 100};
+		//var pic = MeteorCamera.getPicture(cameraOptions, saveImage);
+        MeteorCamera.getPicture(cameraOptions, function (error, data) {
+           if (!error) {
+               template.$('.photo').attr('src', data); 
+			   Session.set("photo", data);
+           }
+        });
+        event.preventDefault();
+    }
 
 });
+
+
 
 var imgStorage = new FS.Store.S3("images");
 

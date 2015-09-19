@@ -8,5 +8,5 @@ Template.chat.helpers({
 
 
 Template.chat.rendered = function () {
-    $('#itmDiscuss').hide();
+   // $('#itmDiscuss').hide();
 };

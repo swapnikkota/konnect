@@ -895,5 +895,9 @@ body {
 		.crp{
 			cursor: pointer;
 		}
-		 
+	
+.camera-popup .photo-preview{
+	width : 100%;
+	padding-bottom : 10%;
+}	
 	

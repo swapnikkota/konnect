@@ -4,3 +4,6 @@ db.cfs.bucketimages.filerecord.find({userLocation: {$near:[103.954746,1]}}).limi
 db.cfs.bucketimages.filerecord.find({ownerId :  { $ne:  "5NdPRDBjL8Le5JBLd"} , userLocation: {$near:[103.954746,1.351127]},"neighborhood": Tampines } )
 db.cfs.bucketimages.filerecord.find({"ownerId" :  { $ne:  "jKnEGovcNEB4WoKbf"}}, { limit: 2 });
 103.954746:1.351127:Tampines:5NdPRDBjL8Le5JBLd
+
+
+db.discussions.find()._addSpecial( "$orderby", { creation_date : 1 } )

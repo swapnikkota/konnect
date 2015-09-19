@@ -16,7 +16,7 @@ Meteor.publish("BucketImages", function(itemToFind, limit){
 				"itemName": itemToFind.itemName, "ownerId" :  { $ne:  this.userId}} , { limit: limit });
 	}else{
 		console.log("displaying all the items not related to user :" + this.userId);
-		return BucketImages.find({"ownerId" :  { $ne:  this.userId}, "itemName": itemToFind.itemName}, { limit: limit });
+		return BucketImages.find({"itemName": itemToFind.itemName}, { limit: limit });
 	}
 	
 });
@@ -32,7 +32,8 @@ Meteor.publish("AllBucketImages", function(limit){
 		 "ownerId" :  { $ne:  this.userId}} , { limit: limit });			
 	}else{
 		console.log("displaying all the items not related to user :" + this.userId);
-		return BucketImages.find({"ownerId" :  { $ne:  this.userId}}, { limit: limit });
+		//return BucketImages.find({"ownerId" :  { $ne:  this.userId}}, { limit: limit });
+		return BucketImages.find({}, { limit: limit });//
 	}
 	
 });
@@ -40,6 +41,7 @@ Meteor.publish("AllBucketImages", function(limit){
 /**
 * Publish messages by items id.
 */
-Meteor.publish('itemDiscussions', function(itemId) {
-    return Discussions.find({ "itemId" : itemId });
+Meteor.publish('itemDiscussions', function(itemId ) {	
+	//console.log("conversationId : " + conversationId);
+    return Discussions.find({ "itemId" : itemId }, {sort : { creation_date : -1 } });
 });
