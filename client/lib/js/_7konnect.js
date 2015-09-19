@@ -34,14 +34,18 @@ if (Meteor.isClient) {
 
 Accounts.onLogin(function() {
 	if(Meteor.user().profile.address == null){
-		Router.go('addressForm');
+		//addressForm
+		Meteor.defer(function() { Router.go('addressForm'); });
+		//Router.go('addressForm');
 	}else{
 		if(Router.current() == null || Router.current().route == null ||
 				Router.current().route.getName() == null ||
 				Router.current().route.getName() != 'lend')
-			Router.go('borrow');
+			Meteor.defer(function() { Router.go('borrow'); });	
+			//Router.go('borrow');
 		else
-			Router.go(Router.current().route.getName());
+			Meteor.defer(function() { Router.go(Router.current().route.getName()); });
+			//Router.go(Router.current().route.getName());
 
 	}
 
@@ -56,6 +60,7 @@ Accounts.onLogin(function() {
 var myPostLogout = function(){
     //example redirect after logout
 	Session.keys = {};
+	Session.clearPersistent();
 	console.log('logout called');
 	Router.go('/');
 };
@@ -64,11 +69,31 @@ var mySubmitFunc = function(error, state){
   if (!error) {
     if (state === "signIn") {
       // Successfully logged in
-      
+        var user = Meteor.user();
+        if (user.profile.address == null)
+			Meteor.defer(function() { Router.go('addressForm'); });
+          //Router.go('addressForm');
+		else{
+			if(Session.get('lend')){
+				Meteor.defer(function() { Router.go('lend'); });
+			}
+			else if(Router.current() ==null || 
+					Router.current().route == null || 
+					Router.current().route.getName() == null ||
+					Router.current().route.getName() != 'lend'){
+					console.log('redirecting to borrow');
+					//Router.go('borrow');
+					Meteor.defer(function() { Router.go('borrow'); });
+				}
+			else{
+				Meteor.defer(function() { Router.go(Router.current().route.getName());});
+			}
+		}
     }
     if (state === "signUp") {
       // Successfully registered
-      Router.go('addressForm');
+	  Meteor.defer(function() { Router.go('addressForm'); });
+      //Router.go('addressForm');
     }
   }
 };
@@ -118,20 +143,22 @@ AccountsTemplates.configureRoute('signIn', {
 	redirect: function(){
         var user = Meteor.user();
         if (user.profile.address == null)
-          Router.go('addressForm');
+			Meteor.defer(function() { Router.go('addressForm'); });
+          //Router.go('addressForm');
 		else{
 			if(Session.get('lend')){
-				Router.go('lend');
+				Meteor.defer(function() { Router.go('lend'); });
 			}
 			else if(Router.current() ==null || 
 					Router.current().route == null || 
 					Router.current().route.getName() == null ||
 					Router.current().route.getName() != 'lend'){
 					console.log('redirecting to borrow');
-					Router.go('borrow');
+					//Router.go('borrow');
+					Meteor.defer(function() { Router.go('borrow'); });
 				}
 			else{
-				Router.go(Router.current().route.getName());
+				Meteor.defer(function() { Router.go(Router.current().route.getName());});
 			}
 		}
 
