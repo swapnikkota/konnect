@@ -1,5 +1,5 @@
 Template.addressForm.onRendered(function() {
-	Session.set('address',{});
+	Session.setPersistent('address',{});
   	this.autorun(function () {
     if (GoogleMaps.loaded()) {		     		 
 		$("#postalCode").geocomplete({ 
@@ -21,7 +21,7 @@ Template.addressForm.onRendered(function() {
 					  data[name + "_short"] = object.short_name;
 					});
 				  });
-				  Session.set('address', data);
+				  Session.setPersistent('address', data);
 			});	
 
 	 }

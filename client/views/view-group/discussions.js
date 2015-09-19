@@ -4,19 +4,24 @@ var scroll = {};
 
 Template.discussions.helpers({
     discussions : function() {
-      itemId = Session.get("itemId");
-	  var item = BucketImages.findOne({ "_id" : itemId }); // Where Images is an FS.Collection instance
-	  var conversationId = itemId + "_" + item.ownerId+ "_" + Meteor.user().id ;
-	  console.log(conversationId);
-      return Discussions.find({ "itemId" : itemId });
+		if(Session.get("itemId")){
+			Meteor.subscribe("BucketImages_itemId", Session.get("itemId"));
+			itemId = Session.get("itemId");
+		  var item = BucketImages.find({ "_id" : itemId }); // Where Images is an FS.Collection instance
+		  var conversationId = itemId + "_" + item.ownerId+ "_" + Meteor.userId() ;
+		 // console.log(conversationId);
+		  return Discussions.find({ "itemId" : itemId });
+		}      
     },
     isUsersMessage : function(messageUser){
-      var currentUserName = Meteor.user().profile.name;
-      if( messageUser === currentUserName){
-        return true;
-      } else {
-        return false;
-      }
+		if(Meteor.user() && Meteor.user().profile){
+			var currentUserName = Meteor.user().profile.name;
+		  if( messageUser === currentUserName){
+			return true;
+		  } else {
+			return false;
+		  }
+		}      
     },
 
     createdDateTime: function () {

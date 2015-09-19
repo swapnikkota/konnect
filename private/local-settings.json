@@ -7,3 +7,12 @@
     "AWSSecretAccessKey" : "yHQBwBCoXOlCVzvJKxouMxZjGSE/0n35fFl4oyvk",
     "AWSBucket" : "konnect-items"
 }
+
+
+{
+  "public": {
+    "persistent_session": {
+      "default_method": "persistent"
+    }
+  }
+}

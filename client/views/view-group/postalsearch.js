@@ -1,5 +1,5 @@
 Template.postalsearch.onRendered(function() {
-	Session.set('address',{});
+	Session.setPersistent('address',{});
   	this.autorun(function () {
 		
     if (GoogleMaps.loaded()) {		     		 
@@ -25,7 +25,7 @@ Template.postalsearch.onRendered(function() {
 					});
 				  });
 				  //console.log(data);
-				  Session.set('address', data);
+				  Session.setPersistent('address', data);
 			});	
 
 	 }
@@ -38,7 +38,7 @@ var searchPostalCode = function(event,template){
     var postalCodeToFind = {
       postalCode : template.find('#postalCode').value
     };
-    Session.set('postalCode', postalCodeToFind);
+    Session.setPersistent('postalCode', postalCodeToFind);
     Router.go('search', {});
 }
 

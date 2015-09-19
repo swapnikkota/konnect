@@ -27,8 +27,8 @@ var searchItem = function(event,template){
       if (error)
         return throwError(error.reason);      
       //console.log(result);
-	  Session.set('itemSearched', itemToFind);
-	   Session.set('searchResults', result.itemsForBorrow);
+	  Session.setPersistent('itemSearched', itemToFind);
+	   Session.setPersistent('searchResults', result.itemsForBorrow);
       Router.go('borrow', result.itemsForBorrow);  
     });
   }

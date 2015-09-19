@@ -3,7 +3,7 @@ Meteor.subscribe("items");
 
 incrementLimit = function() {
   newLimit = Session.get('itemsLimit') + ITEMS_INCREMENT;
-  Session.set('itemsLimit', newLimit);
+  Session.setPersistent('itemsLimit', newLimit);
 }
 
 Template.itemslist.onCreated(function() {	
@@ -26,7 +26,7 @@ Template.itemslist.helpers({
   images: function () {	
 	var itemToFind = Session.get('itemSearched');
 	if(itemToFind){				
-		return BucketImages.find({"itemName" : itemToFind.itemName}, { limit: Session.get('itemsLimit') }); // Where Images is an FS.Collection instance	
+		return BucketImages.find({"itemName" : itemToFind.itemName.toLowerCase()}, { limit: Session.get('itemsLimit') }); // Where Images is an FS.Collection instance	
 	}else{
 		return BucketImages.find({}, { limit: Session.get('itemsLimit') }); // Where Images is an FS.Collection instance	
 	}
@@ -50,11 +50,11 @@ Template.itemslist.events({
     incrementLimit();
   },
   'click #btnInterested': function(event) {
-	Session.set("itemId", event.target.getAttribute("data-id"));
+	Session.setPersistent("itemId", event.target.getAttribute("data-id"));
 	Meteor.defer(function() { Router.go('chat'); })
   },
    'click #image': function(event) {
-	Session.set("itemId", event.target.getAttribute("data-id"));
+	Session.setPersistent("itemId", event.target.getAttribute("data-id"));
 	Meteor.defer(function() { Router.go('chat'); })
   }
 });

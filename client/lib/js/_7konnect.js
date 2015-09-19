@@ -123,8 +123,11 @@ AccountsTemplates.configureRoute('signIn', {
 			if(Session.get('lend')){
 				Router.go('lend');
 			}
-			else if(Router.current() ==null || Router.current().route == null || Router.current().route.getName() == null ||
-				Router.current().route.getName() != 'lend'){
+			else if(Router.current() ==null || 
+					Router.current().route == null || 
+					Router.current().route.getName() == null ||
+					Router.current().route.getName() != 'lend'){
+					console.log('redirecting to borrow');
 					Router.go('borrow');
 				}
 			else{

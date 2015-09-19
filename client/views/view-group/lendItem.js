@@ -92,8 +92,8 @@ var addItem = function(event,template){
 	fsFile.userLocation  = userLoc;
 	
 	fsFile.ownerId = Meteor.userId();
-	fsFile.itemDesc = itemDesc;
-	fsFile.itemName = itemName;
+	fsFile.itemDesc = itemDesc.toLowerCase();
+	fsFile.itemName = itemName.toLowerCase();
 	fsFile.neighborhood = Meteor.user().profile.address.neighborhood;
 	BucketImages.insert(fsFile, function(err, fileObj){					
 		if(err){
@@ -102,7 +102,7 @@ var addItem = function(event,template){
 		  // gets the ID of the image that was uploaded
 		  var imageId = fileObj._id;
 		  template.find('.photo').src = '';	
-		  Session.set('photo','');
+		  Session.setPersistent('photo','');
 		 // console.log(fileObj.metadata);
 		  myDropzone.removeAllFiles(true);
 		};
@@ -119,7 +119,7 @@ var addItem = function(event,template){
 
 var saveImage = function(error, data){
 	console.log(data);
-	Session.set("photo", data);
+	Session.setPersistent("photo", data);
 	var item = {pic : data, itemDesc : "testImage"};
 	/*Meteor.call('addItem', item, function(error) {
 

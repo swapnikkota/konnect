@@ -27,3 +27,4 @@ momentjs:moment
 
 cfs:gridfs
 multiply:iron-router-progress
+u2622:persistent-session
