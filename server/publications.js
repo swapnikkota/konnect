@@ -13,11 +13,11 @@ Meteor.publish("BucketImages", function(itemToFind, limit){
 		return BucketImages.find(
 				{"userLocation": {$near:[user.profile.address.loc.longitude,user.profile.address.loc.latitude]},
 				"neighborhood": user.profile.address.neighborhood,
-				"itemName": itemToFind.itemName.toLowerCase(), "ownerId" :  { $ne:  this.userId}} , { limit: limit });
+				"itemName": {$regex: itemToFind.itemName.toLowerCase() + "*"}, "ownerId" :  { $ne:  this.userId}} , { limit: limit });
 	}else{
 		console.log("displaying all the items not related to user :" + this.userId  + " : " +  itemToFind.itemName.toLowerCase());
 		var itemName = itemToFind.itemName.toLowerCase();
-		return BucketImages.find({"itemName": itemName}, { limit: limit });
+		return BucketImages.find({"itemName": {$regex: itemName.toLowerCase() + "*"}}, { limit: limit });
 	}
 	
 });

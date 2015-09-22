@@ -7,3 +7,5 @@ db.cfs.bucketimages.filerecord.find({"ownerId" :  { $ne:  "jKnEGovcNEB4WoKbf"}},
 
 
 db.discussions.find()._addSpecial( "$orderby", { creation_date : 1 } )
+
+db.cfs.bucketimages.filerecord.find({"itemName": {$regex: "iphone*"}}, { limit: 2 })

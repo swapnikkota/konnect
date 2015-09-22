@@ -26,7 +26,7 @@ Template.itemslist.helpers({
   images: function () {	
 	var itemToFind = Session.get('itemSearched');
 	if(itemToFind){				
-		return BucketImages.find({"itemName" : itemToFind.itemName.toLowerCase()}, { limit: Session.get('itemsLimit') }); // Where Images is an FS.Collection instance	
+		return BucketImages.find({"itemName": {$regex: itemToFind.itemName.toLowerCase() + "*"}}, { limit: Session.get('itemsLimit') }); // Where Images is an FS.Collection instance	
 	}else{
 		return BucketImages.find({}, { limit: Session.get('itemsLimit') }); // Where Images is an FS.Collection instance	
 	}

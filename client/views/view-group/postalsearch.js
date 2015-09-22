@@ -2,8 +2,10 @@ Template.postalsearch.onRendered(function() {
 	Session.setPersistent('address',{});
   	this.autorun(function () {
 		
-    if (GoogleMaps.loaded()) {		     		 
+    if (GoogleMaps.loaded()) {
+		
 		$("#postalCode").geocomplete({ 
+			autoselect :false,
 			details: ".details",
 		    detailsAttribute: "data-geo",
 			componentRestrictions: {country: "sg"},
@@ -26,6 +28,8 @@ Template.postalsearch.onRendered(function() {
 				  });
 				  //console.log(data);
 				  Session.setPersistent('address', data);
+			}).bind("geocode:multiple", function(event,result){
+				console.log('inside multiple');
 			});	
 
 	 }
@@ -49,6 +53,7 @@ Template.postalsearch.events({
   },
   'click button': function() {
     // Trigger geocoding request.
+	console.log("trigger geocode request");
     $("#postalCode").trigger("geocode");
   }
 

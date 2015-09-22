@@ -900,4 +900,12 @@ body {
 	width : 100%;
 	padding-bottom : 10%;
 }	
+
+.camera-popup{
+	width:90%;
+}
+
+.camera-popup #video{
+	width : 100%;
+}
 	

@@ -3,6 +3,7 @@ Template.addressForm.onRendered(function() {
   	this.autorun(function () {
     if (GoogleMaps.loaded()) {		     		 
 		$("#postalCode").geocomplete({ 
+			autoselect :false,	
 			details: ".details",
 		    detailsAttribute: "data-geo",
 			componentRestrictions: {country: "sg"},
