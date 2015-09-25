@@ -21,5 +21,49 @@
     </ul>
     {{/each}}
         </div>
+		
+	<!--<div class="bs-example">
+    <div class="panel-group" id="accordion">
+		{{#each discussions}}
+		<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href=#{{conversationId}}>{{user}}</a>
+					</h4>
+				</div>
+				<div id={{conversationId}} class="panel-collapse collapse in">
+					<div class="panel-body">
+						<p>{{message}}</p>
+					</div>
+				</div>
+			</div>
+		{{/each}}       
+    </div>	
+	</div>-->
+	<div class="bs-example">
+    <div class="panel-group" id="accordion">
+		{{#each conversations}}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href=#{{this.type.id}}>{{this.type.user}}</a>
+					</h4>
+				</div>
+				<div id={{this.type.id}} class="panel-collapse collapse in">
+					<div class="panel-body">
+					{{#each this.name}}
+						<div class="chat-body clearfix">
+							<div class="header">				
+								<span class="glyphicon glyphicon-time"></span>{{this.creation_date}}							
+							</div>
+							<p>{{this.message}}</p>
+						</div>						
+					{{/each}}
+					</div>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+	</div>
 </div>
 </template>

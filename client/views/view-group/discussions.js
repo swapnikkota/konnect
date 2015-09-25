@@ -13,6 +13,33 @@ Template.discussions.helpers({
 		  return Discussions.find({ "itemId" : itemId });
 		}      
     },
+	conversations : function() {
+		if(Session.get("itemId")){
+		  var conversations = Discussions.find({ "itemId" : itemId, "owningParty" : Meteor.userId() }).fetch();
+		  var conversationMap = {};
+		  var found=[];
+		  for (var i in conversations) {
+			  var userConversation = conversations[i];
+			if(conversationMap[userConversation.conversationId]){
+				var found = conversationMap[userConversation.conversationId];
+				found.push(userConversation);
+			}else{
+				conversationMap[userConversation.conversationId] = [];
+				conversationMap[userConversation.conversationId].push(userConversation);
+			}
+		  }
+		  console.log(conversationMap);
+		  var output = [], item;
+
+			for (var type in conversationMap) {
+				item = {};
+				item.type = {"id" : type ,"user": conversationMap[type][0].user};
+				item.name = conversationMap[type];
+				output.push(item);
+			}
+			return output;
+		}      
+    },
     isUsersMessage : function(messageUser){
 		if(Meteor.user() && Meteor.user().profile){
 			var currentUserName = Meteor.user().profile.name;
@@ -68,6 +95,13 @@ Template.discussions.created = function () {
         nowTimestamp = new Date().getTime();
         itemId = Session.get("itemId");
         Meteor.subscribe('itemDiscussions',itemId, {
+            onReady: function () {
+                scrollChatToBottom();
+                isReady.messages = true;
+                scrollChatToBottom();
+            }
+        });
+		Meteor.subscribe('itemConversations',itemId, {
             onReady: function () {
                 scrollChatToBottom();
                 isReady.messages = true;
