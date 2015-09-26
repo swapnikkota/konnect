@@ -1,6 +1,6 @@
 <template name="discussions">
 <div class="panel-body" id="discussionContainer">
-     <div id="scrollContainer" class="scroll-container">
+    <!-- <div id="scrollContainer" class="scroll-container">
     {{#each discussions}}
     <ul class="chat">
 
@@ -20,7 +20,7 @@
         </li>
     </ul>
     {{/each}}
-        </div>
+        </div>-->
 		
 	<!--<div class="bs-example">
     <div class="panel-group" id="accordion">
@@ -60,7 +60,9 @@
 						</div>						
 					{{/each}}
 					</div>
+					{{> chat_input}}
 				</div>
+				
 			</div>
 		{{/each}}
 	</div>
