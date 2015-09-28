@@ -1,19 +1,20 @@
 Template.chat_input.events({
 
-    'click #btn-chat' : function() {
+    'click #btn-chat' : function(event) {
 
-         var discussionMsg = $('#btn-input');
+		var converationId =  event.target.getAttribute("data-id");
+         var discussionMsg = $('#' + converationId + "_textarea" );
 
         if(!discussionMsg || !discussionMsg.val()) return;
 
         itemId = Session.get("itemId");
 
-        var data = {"itemId":itemId,"message":discussionMsg.val()};
+        var data = {"itemId":itemId,"message":discussionMsg.val(), "conversationId" : converationId};
         Meteor.call("insertDiscussion", data)
 
-        $('#btn-input').val('');
+        $('#' + converationId + "_textarea" ).val('');
         scrollChatToBottom();
-        $('#btn-input').focus();
+        $('#' + converationId + "_textarea" ).focus();
         autoGrowChatTxt();
     }
 });

@@ -1,7 +1,27 @@
 <template name="chat">
     {{> sAlert}}
    {{> chatNav}}
-  <div class="container">
+   <!-- Sidebar -->
+   <div id="wrapper" class="toggled">
+        <div id="sidebar-wrapper">
+		
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                  
+                </li>
+				{{#each conversations}}
+				<li>
+					<a href=#{{this.type.id}}>{{this.type.user}}</a>
+				</li>
+				{{/each}}
+                
+                <li>
+                   <a href="#show-chat" class="btn btn-default" id="show-chat">Close Conversations</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+  <div class="container" id="page-content-wrapper">
      <!-- <div class="row" id="itmDtl">
         <div class="col-md-12">
             <div class="panel panel-primary">
@@ -44,7 +64,7 @@
 					<a href="#">
 						<img src={{item.url}} alt="Image" class="img-responsive thumbnail">
 					</a>
-					
+					<a href="#show-chat" class="btn btn-default" id="show-chat">Show Conversations</a>
 				</div>
 			<!-- Left Ends -->
 			<!-- Right Starts -->
@@ -66,55 +86,10 @@
 						</ul>
 					<!-- Manufacturer Ends -->
 						<hr>
-					<!-- Price Starts 
-						<div class="price">
-							<span class="price-head">Price :</span>
-							<span class="price-new">$199.50</span> 
-							<span class="price-old">$249.50</span>
-							<p class="price-tax">Ex Tax: $279.99</p>
-						</div>
-					 Price Ends 
-						<hr>-->
+					
 					<!-- Available Options Starts -->
 						<div class="options">
-								<!--<div class="form-group">
-								<label for="select" class="control-label text-uppercase">Select:</label>
-								<select name="select" id="select" class="form-control">
-									<option value="1" selected="">Select</option>
-									<option value="2">Option 1</option>
-									<option value="3">Option 1</option>
-								</select>
-							</div>	
-							<div class="form-group">
-								<label class="control-label text-uppercase">Radio:</label>
-								<div class="radio">
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-										Option one is this and that—be sure to include why it's great
-									</label>
-								</div>
-								<div class="radio">
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-										Option two can be something else and selecting it will deselect option one
-									</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label text-uppercase">Checkbox:</label>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" value="">
-										Option one is this and that—be sure to include why it's great
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" value="" checked="">
-										Option two is checked
-									</label>
-								</div>
-							</div>-->
+								
 							
 							<div class="cart-button button-group">
 								<button type="button" title="" class="btn btn-wishlist" data-original-title="Wishlist">
@@ -139,6 +114,7 @@
 				</div>
 			<!-- Right Ends -->
 			</div>
+  </div>
   </div>
   
   

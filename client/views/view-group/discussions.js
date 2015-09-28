@@ -82,12 +82,15 @@ Template.discussions.events({
             //incMessageLimit(20);
         }
     }
+	
 
 });
 
 
 
 Template.discussions.created = function () {
+	
+	
     isReady.messages = false;
     var nowTimestamp;
     Session.setDefault('messageLimit', 10);
@@ -124,6 +127,9 @@ Template.discussions.created = function () {
         }
     });
 };
+
+
+	
 
 
 scrollChatToBottom = function () {

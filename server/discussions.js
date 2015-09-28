@@ -17,7 +17,12 @@ Meteor.methods({
     data.interestedParty = Meteor.user()._id;
     data.user = Meteor.user().profile.name;
     data.creation_date = new Date().getTime();
-	data.conversationId = itemId + "_" + owner._id + "_" + Meteor.user()._id;
+	if(owner._id == Meteor.user()._id){
+		data.conversationId = data.conversationId;
+	}else{
+		data.conversationId = itemId + "_" + owner._id + "_" + Meteor.user()._id;
+	}
+	
     Discussions.insert(data);
   }
 });
