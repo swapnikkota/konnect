@@ -2,20 +2,31 @@ Template.chat_input.events({
 
     'click #btn-chat' : function(event) {
 
-		var converationId =  event.target.getAttribute("data-id");
-         var discussionMsg = $('#' + converationId + "_textarea" );
+		var conversationId =  event.target.getAttribute("data-id");
+		if(conversationId){
+			var discussionMsg = $('#' + conversationId + "_textarea" );
+			if(!discussionMsg || !discussionMsg.val()) return;
 
-        if(!discussionMsg || !discussionMsg.val()) return;
+			itemId = Session.get("itemId");
+			var data = {"itemId":itemId,"message":discussionMsg.val(), "conversationId" : conversationId};
+			Meteor.call("insertDiscussion", data);
+			$('#' + conversationId + "_textarea" ).val('');
+			scrollChatToBottom();
+			$('#' + conversationId + "_textarea" ).focus();
+			autoGrowChatTxt();
+		} else{
+			var discussionMsg = $("#_textarea" );
+			if(!discussionMsg || !discussionMsg.val()) return;
 
-        itemId = Session.get("itemId");
-
-        var data = {"itemId":itemId,"message":discussionMsg.val(), "conversationId" : converationId};
-        Meteor.call("insertDiscussion", data)
-
-        $('#' + converationId + "_textarea" ).val('');
-        scrollChatToBottom();
-        $('#' + converationId + "_textarea" ).focus();
-        autoGrowChatTxt();
+			itemId = Session.get("itemId");
+			var data = {"itemId":itemId,"message":discussionMsg.val()};
+			Meteor.call("insertDiscussion", data);
+			$("#_textarea" ).val('');
+			scrollChatToBottom();
+			$("#_textarea" ).focus();
+			autoGrowChatTxt();
+		}
+         
     }
 });
 
