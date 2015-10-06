@@ -15,18 +15,19 @@ Meteor.subscribe("items");
 
 var img;
 var myDropzone;
-Template.uploadActions.rendered = function(){
+Template.lendItem.rendered = function(){
 
     var arrayOfImageIds = [];
    // Dropzone.autoDiscover = false;
 
     // Adds file uploading and adds the imageID of the file uploaded
 	var previewNode = document.querySelector("#template");
-	previewNode.id = "";
-	var previewTemplate = previewNode.parentNode.innerHTML;
-	previewNode.parentNode.removeChild(previewNode);
+	if(previewNode){
+		previewNode.id = "";
+		var previewTemplate = previewNode.parentNode.innerHTML;
+		previewNode.parentNode.removeChild(previewNode);
 
-	//if(!document.body.dropzone){
+		//if(!document.body.dropzone){
 		myDropzone = new Dropzone(document.querySelector(".item-form"), {
 			// Make the whole body a dropzone
 		  url : 'cfs/files',
@@ -35,7 +36,7 @@ Template.uploadActions.rendered = function(){
 		  parallelUploads: 20,
 		  autoProcessQueue : false,
 		  previewTemplate: previewTemplate,
-		  autoDiscover  : true,
+		  autoDiscover  : false,
 		  autoQueue: false, // Make sure the files aren't queued until manually added
 		  previewsContainer: "#previews", // Define the container to display the previews
 		  clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
@@ -44,6 +45,8 @@ Template.uploadActions.rendered = function(){
 		myDropzone.on("addedfile", function(file) {
 			 img =  file;
 		});
+	}
+	
 	//}
 	
 
@@ -128,7 +131,7 @@ var saveImage = function(error, data){
 
 Template.lendItem.events({
   'click #lend': function(event, template) {
-   addItem(event, template);
+	addItem(event, template);
   },
   "submit": function (event, template) {
 	addItem(event, template);
@@ -143,9 +146,14 @@ Template.lendItem.events({
            }
         });
         event.preventDefault();
-    }
+    },
+	'click .fileinput-button' : function(event, template){
+		alert('proceed to add file');
+	}
 
 });
+
+
 
 
 

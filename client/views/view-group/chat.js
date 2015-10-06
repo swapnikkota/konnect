@@ -7,8 +7,8 @@ Template.chat.helpers({
 	conversations : function() {
 		if(Session.get("itemId")){
 			itemId = Session.get("itemId");
-		  var conversations = Discussions.find({ "itemId" : itemId, "owningParty" : Meteor.userId() }).fetch();
-		  var conversationMap = {};
+		  conversations = Discussions.find({ "itemId" : itemId, "owningParty" : Meteor.userId() }).fetch();
+		  conversationMap = {};
 		  var found=[];
 		  for (var i in conversations) {
 			  var userConversation = conversations[i];
@@ -31,7 +31,10 @@ Template.chat.helpers({
 			}
 			return output;
 		}      
-    }
+    }, 
+	selectedConversation : function(){
+		return Session.get("selectedConversation");			
+	}
 });
 
 
@@ -43,8 +46,20 @@ Template.chat.events({
     // $('#itmDiscuss').hide();
    'click #show-chat' : function(e) {
 		e.preventDefault();
+		$("#selectedConversation").hide();
         $("#wrapper").toggleClass("toggled");
 			
+	},
+	'click .chatUser' : function(e){
+		e.preventDefault();
+		var conversationId =  event.target.getAttribute("data-id");
+		console.log('chatuser clicked' + conversationId);
+		Session.setPersistent('selectedConversation', conversationMap[conversationId]);
+		Session.setPersistent('selectedConversationId', conversationId);
+		
+		console.log(conversationMap[conversationId]);	
+		$("#selectedConversation").show();
+		return false;
 	}
 	
 

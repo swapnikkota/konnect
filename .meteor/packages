@@ -11,7 +11,6 @@ twbs:bootstrap
 service-configuration
 iron:router
 mdg:camera
-dbarrett:dropzonejs
 cfs:standard-packages
 jeremy:geocomplete
 
@@ -28,3 +27,5 @@ momentjs:moment
 cfs:gridfs
 multiply:iron-router-progress
 u2622:persistent-session
+okland:camera-ui
+dbarrett:dropzonejs

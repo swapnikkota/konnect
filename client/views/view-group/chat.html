@@ -1,7 +1,7 @@
 <template name="chat">
    
    <!-- Sidebar -->
-   <div id="wrapper" class="toggled">
+   <div id="wrapper">
         <div id="sidebar-wrapper">
 		
             <ul class="sidebar-nav">
@@ -10,13 +10,10 @@
                 </li>
 				{{#each conversations}}
 				<li>
-					<a href=#{{this.type.id}}>{{this.type.user}}</a>
+					<a href="#" data-id="{{this.type.id}}" class="chatUser">{{this.type.user}}</a>
 				</li>
 				{{/each}}
-                
-                <li>
-                   <a href="#show-chat" class="btn btn-default" id="show-chat">Close Conversations</a>
-                </li>
+                <a href="#show-chat" class="btn btn-default"  style="margin:10px;" id="show-chat">Close </a>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -57,8 +54,24 @@
           </div>
           <div class="col-md-3"></div>
       </div>-->
-	  <div class="row product-info full well">
+	  <div class="row product-info full">
 			<!-- Left Starts -->
+				<div class="col-sm-3 col-xs-8" id="selectedConversation" style="display:none">
+				{{#each selectedConversation}}
+					<div id={{this.conversationId}} class="panel-collapse collapse in">
+					
+					
+					<div class="chat-body clearfix">
+						<div class="header">				
+							<span class="glyphicon glyphicon-time"></span>{{this.creation_date}}							
+						</div>
+						<p>{{this.message}}</p>
+					</div>						
+					
+					</div>
+					{{/each}}
+				{{> chat_input}}
+				</div>
 				<div class="col-sm-3 images-block">
 					<a href="#">
 						<img src={{item.url}} alt="Image" class="img-responsive thumbnail">
@@ -94,9 +107,7 @@
 								<button type="button" title="" class="btn btn-wishlist" data-original-title="Wishlist">
 									<i class="fa fa-heart"></i>
 								</button>
-								<button type="button" title="" class="btn btn-compare" data-original-title="Compare">
-									<i class="fa fa-bar-chart-o"></i>
-								</button>
+								
 								<button type="button" class="btn btn-cart">
 									Borrow
 									<i class="fa fa-shopping-cart"></i> 

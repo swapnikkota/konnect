@@ -918,18 +918,18 @@ body {
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 100px;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: 7%;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -7%;
     overflow-y: auto;
-    background: #000;
+    background: gray;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -937,7 +937,7 @@ body {
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 30%;
 }
 
 #page-content-wrapper {
@@ -948,7 +948,7 @@ body {
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    margin-right: -19%;
 }
 
 /* Sidebar Styles */
@@ -956,7 +956,7 @@ body {
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 100px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -964,13 +964,13 @@ body {
 
 .sidebar-nav li {
     text-indent: 20px;
-    line-height: 40px;
+    line-height: 30px;
 }
 
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #fff;
 }
 
 .sidebar-nav li a:hover {
@@ -985,7 +985,7 @@ body {
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
+    height: 70px;
     font-size: 18px;
     line-height: 60px;
 }
@@ -1001,7 +1001,7 @@ body {
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 250px;
+        padding-left: 7%;
     }
 
     #wrapper.toggled {
@@ -1009,7 +1009,7 @@ body {
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 7%;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -1025,5 +1025,12 @@ body {
         position: relative;
         margin-right: 0;
     }
+}
+
+
+#selectedConversation{
+background-color:#f05f40;
+color : white;
+padding : 0.5%;
 }
 	
