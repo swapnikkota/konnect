@@ -57,20 +57,22 @@
 	  <div class="row product-info full">
 			<!-- Left Starts -->
 				<div class="col-sm-3 col-xs-8" id="selectedConversation" style="display:none">
-				{{#each selectedConversation}}
-					<div id={{this.conversationId}} class="panel-collapse collapse in">
-					
-					
-					<div class="chat-body clearfix">
-						<div class="header">				
-							<span class="glyphicon glyphicon-time"></span>{{this.creation_date}}							
+					<div id="chat-messages">
+					{{#each selectedConversation}}
+						<div id={{this.conversationId}} class="panel-collapse collapse in ">
+						
+						
+						<div class="chat-body clearfix">
+							<div class="header">				
+								<span class="glyphicon glyphicon-time"></span>{{this.creation_date}}							
+							</div>
+							<p>{{this.message}}</p>
+						</div>						
+						
 						</div>
-						<p>{{this.message}}</p>
-					</div>						
-					
+						{{/each}}
 					</div>
-					{{/each}}
-				{{> chat_input}}
+					{{> chat_input}}
 				</div>
 				<div class="col-sm-3 images-block">
 					<a href="#">

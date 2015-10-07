@@ -18,15 +18,15 @@ Template.chat_input.events({
 			$("#_textarea" ).focus();
 			autoGrowChatTxt();
 		} else{
-			var discussionMsg = $("#_textarea" );
+			var discussionMsg = $("#itmDiscuss").find("#_textarea");
 			if(!discussionMsg || !discussionMsg.val()) return;
 
 			itemId = Session.get("itemId");
 			var data = {"itemId":itemId,"message":discussionMsg.val()};
 			Meteor.call("insertDiscussion", data);
-			$("#_textarea" ).val('');
+			discussionMsg.val('');
 			scrollChatToBottom();
-			$("#_textarea" ).focus();
+			discussionMsg.focus();
 			autoGrowChatTxt();
 		}
          

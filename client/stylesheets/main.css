@@ -674,6 +674,9 @@ body {
 	.event-list > li > .social {
 		width: 20%;
 	}
+	#chat-messages{
+		height: 320px;
+	}
 }
 
 
@@ -1033,4 +1036,15 @@ background-color:#f05f40;
 color : white;
 padding : 0.5%;
 }
+
+#chat-messages{
+overflow-y : scroll;
+height: 200px;
+}
 	
+@media (max-width: 480px) {
+	
+	#chat-messages{
+		height: 24em;
+	}
+}
