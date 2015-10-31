@@ -921,18 +921,18 @@ body {
 }
 
 #wrapper.toggled {
-    padding-left: 100px;
+   
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 7%;
+    left: 100%;
     width: 0;
     height: 100%;
     margin-left: -7%;
     overflow-y: auto;
-    background: gray;
+    background: white;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -958,8 +958,8 @@ body {
 
 .sidebar-nav {
     position: absolute;
-    top: 0;
-    width: 100px;
+    top: 3%;
+    width: 95%;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -973,13 +973,17 @@ body {
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #fff;
+    color: black;
+	border : 1px solid gray
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
+    background: gray;
+}
+
+.sidebar-nav li a.selected {
+    background:gray;
 }
 
 .sidebar-nav li a:active,
@@ -1004,7 +1008,7 @@ body {
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 7%;
+    
     }
 
     #wrapper.toggled {
@@ -1032,19 +1036,35 @@ body {
 
 
 #selectedConversation{
-background-color:#f05f40;
-color : white;
+background-color:white;
+color : gray;
 padding : 0.5%;
+padding-right : 7%;
+border : 1px solid gray;
+}
+
+#sc-mob{
+	padding-top:5%;
+	padding-left: 10%;
+	padding-bottom : 10%;
+	padding-right : 10%;
 }
 
 #chat-messages{
 overflow-y : scroll;
 height: 200px;
+padding-top : 5%;
 }
 	
 @media (max-width: 480px) {
 	
 	#chat-messages{
 		height: 24em;
+	}
+	#sidebar-wrapper{
+		margin-left : -24%;
+	}
+	.product-info{
+		padding-top : 16%;
 	}
 }

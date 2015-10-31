@@ -1,5 +1,6 @@
 <template name="chat">
    
+   
    <!-- Sidebar -->
    <div id="wrapper">
         <div id="sidebar-wrapper">
@@ -13,7 +14,7 @@
 					<a href="#" data-id="{{this.type.id}}" class="chatUser">{{this.type.user}}</a>
 				</li>
 				{{/each}}
-                <a href="#show-chat" class="btn btn-default"  style="margin:10px;" id="show-chat">Close </a>
+               <!-- <a href="#show-chat" class="btn btn-default"  style="margin:10px;" id="show-chat">Close </a>-->
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -56,29 +57,12 @@
       </div>-->
 	  <div class="row product-info full">
 			<!-- Left Starts -->
-				<div class="col-sm-3 col-xs-8" id="selectedConversation" style="display:none">
-					<div id="chat-messages">
-					{{#each selectedConversation}}
-						<div id={{this.conversationId}} class="panel-collapse collapse in ">
-						
-						
-						<div class="chat-body clearfix">
-							<div class="header">				
-								<span class="glyphicon glyphicon-time"></span>{{this.creation_date}}							
-							</div>
-							<p>{{this.message}}</p>
-						</div>						
-						
-						</div>
-						{{/each}}
-					</div>
-					{{> chat_input}}
-				</div>
+				
 				<div class="col-sm-3 images-block">
 					<a href="#">
 						<img src={{item.url}} alt="Image" class="img-responsive thumbnail">
 					</a>
-					<a href="#show-chat" class="btn btn-default" id="show-chat">Show Conversations</a>
+					<a href="#show-chat" class="btn btn-default visible-xs" id="show-chat">Show Conversations</a>
 				</div>
 			<!-- Left Ends -->
 			<!-- Right Starts -->
@@ -116,17 +100,42 @@
 								</button>									
 							</div>
 						</div>
+						
+						
 						<div id = "itmDiscuss" >
+						{{#if showConversation}}
 							<h3>Enter your Message Here</h3>
 							{{> chat_input}}
-							 {{> discussions}}							
+								
+						{{/if}}						 
 						</div>
+						 {{> discussions}}
+						
 					<!-- Available Options Ends -->
 					</div>
 				</div>
 			<!-- Right Ends -->
+			<div class="col-sm-3 col-xs-8" id="selectedConversation" style="display:none">
+					<div id="chat-messages">
+					{{#each selectedConversation}}
+						<div id={{this.conversationId}} class="panel-collapse collapse in ">
+						
+						
+						<div class="chat-body clearfix">
+							<div class="header">				
+								<span class="glyphicon glyphicon-time"></span>{{this.creation_date}}							
+							</div>
+							<p>{{this.message}}</p>
+						</div>						
+						
+						</div>
+						{{/each}}
+					</div>
+					{{> chat_input}}
+				</div>
 			</div>
 
+		
   </div>
   </div>
   

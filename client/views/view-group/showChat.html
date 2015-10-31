@@ -1,0 +1,49 @@
+<template name="showChat">
+   
+   
+   <!-- Sidebar -->
+   <div id="wrapper">
+        <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+               
+                </li>
+				{{#each conversations}}
+				<li>
+					<a href="#" data-id="{{this.type.id}}" class="chatUser">{{this.type.user}}</a>
+				</li>
+				{{/each}}
+                <a href="#" class="btn btn-primary show-item"  style="margin:10px;">Show Detail </a>
+            </ul>
+			
+        </div>
+        <!-- /#sidebar-wrapper -->
+  <div class="container" id="page-content-wrapper">
+   
+      {{> discussions}}
+		<!-- Right Ends -->
+			<div class="col-xs-12 sc-mob" id="selectedConversation" style="display:none">
+			<div style="padding-top:10%"><a href="#" class="back"> back</a></div>
+					<div id="chat-messages">
+					{{#each selectedConversation}}
+						<div id={{this.conversationId}} class="panel-collapse collapse in ">
+						
+						
+						<div class="chat-body clearfix">
+							<div class="header">				
+								<span class="glyphicon glyphicon-time"></span>{{this.creation_date}}							
+							</div>
+							<p>{{this.message}}</p>
+						</div>						
+						
+						</div>
+						{{/each}}
+					</div>
+					{{> chat_input}}
+				</div>
+			
+  </div>
+  
+  
+  
+
+</template>

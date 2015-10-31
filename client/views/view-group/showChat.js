@@ -1,9 +1,5 @@
-Template.chat.helpers({
-    item: function () {
-      itemId = Session.get("itemId");
-      var item = BucketImages.findOne({ "_id" : itemId }); // Where Images is an FS.Collection instance
-      return item;
-    },
+Template.showChat.helpers({
+    
 	conversations : function() {
 		if(Session.get("itemId")){
 			itemId = Session.get("itemId");
@@ -34,31 +30,17 @@ Template.chat.helpers({
     }, 
 	selectedConversation : function(){
 		return Session.get("selectedConversation");			
-	},
-	showConversation : function(){
-		if(Session.get("itemId")){
-			itemId = Session.get("itemId");
-		  conversations = Discussions.find({ "itemId" : itemId, "owningParty" : Meteor.userId() }).fetch();
-		  return conversations.length === 0;
-		}
 	}
 });
 
 
-Template.chat.created = function () {
+Template.showChat.created = function () {
    Meteor.subscribe('itemConversations',Session.get("itemId"));
 };
 
-Template.chat.events({
-    // $('#itmDiscuss').hide();
-   'click #show-chat' : function(e) {
-		e.preventDefault();
-		Router.go('showChat');  
-		//$("#selectedConversation").hide();
-        //$("#wrapper").toggleClass("toggled");
-			
-	},
-	'click .chatUser' : function(e){
+Template.showChat.events({
+  	'click .chatUser' : function(e){
+		$("#wrapper").hide();
 		e.preventDefault();
 		var conversationId =  event.target.getAttribute("data-id");
 		console.log('chatuser clicked' + conversationId);
@@ -68,6 +50,16 @@ Template.chat.events({
 		console.log(conversationMap[conversationId]);	
 		$("#selectedConversation").show();
 		return false;
+	},
+	'click .back' : function(e){
+		e.preventDefault();
+		$("#selectedConversation").hide();
+		$("#wrapper").show();
+		//history.go(-1);
+	},
+	'click .show-item':function(e){
+		e.preventDefault();
+		history.go(-1);
 	}
 	
 
